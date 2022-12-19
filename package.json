@@ -1,12 +1,14 @@
 {
-  "name": "goit-react-hw-02-phonebook",
+  "name": "wallet-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://zorbik.github.io/goit-react-hw-02-phonebook/",
+  "homepage": "https://zorbik.github.io/wallet-project/",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
     "nanoid": "^4.0.0",
     "normalize.css": "^8.0.1",
     "nth-check": "^2.1.1",
