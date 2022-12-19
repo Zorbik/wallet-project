@@ -1,6 +1,6 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
-import './common/main.scss';
+// import './common/main.scss';
 // import './index.css';
 // import { App } from './App';
 // import { ThemeProvider } from 'styled-components';
