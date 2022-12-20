@@ -5,6 +5,8 @@
 // import { Contacts, Home, Login, NotFoundPage, Registration } from './pages';
 // import { getCurrentUser } from './redux/userAuthOperations';
 
+import LoginPages from "./pages/loginPage/loginPage";
+
 function App() {
   //   const dispatch = useDispatch();
 
@@ -14,7 +16,9 @@ function App() {
 
   return (
     <>
-      <div>sadfljhasjdf</div>
+      <div>
+        <LoginPages> </LoginPages>
+      </div>
       {/* <Suspense fallback={false}>
         <Routes>
           <Route path="/" element={<Layout />}>
