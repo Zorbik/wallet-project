@@ -1,16 +1,16 @@
-// import { Suspense, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 // import { Route, Routes } from 'react-router-dom';
 // import { Layout, PrivateRoute, PublicRoute } from './components';
 // import { Contacts, Home, Login, NotFoundPage, Registration } from './pages';
-// import { getCurrentUser } from './redux/userAuthOperations';
+import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
 function App() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getCurrentUser());
-  //   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
