@@ -10,7 +10,6 @@ export const fetchCategories = createAsyncThunk(
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
-      console.log(e.message);
     }
   }
 );
