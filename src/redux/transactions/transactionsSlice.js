@@ -12,10 +12,9 @@ const initialState = {
 };
 
 export const transactionsSlice = createSlice({
-  // Ім'я слайсу
   name: 'transactions',
-  // Початковий стан редюсера слайсу
   initialState: initialState,
+
   extraReducers: builder => {
     builder.addCase(addTransaction.pending, (state, action) => {
       state.isLoading = true;

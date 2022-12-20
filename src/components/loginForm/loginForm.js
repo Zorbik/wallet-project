@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import { useDispatch } from "react-redux";
-import  {Logo, LogoSvg, Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, AuthForm} from "./LoginFormStyled"
+import  {Logo, LogoSvg, Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, AuthForm} from "./LoginPageStyled"
 
 export default function LoginPage(){
     // const dispatch = useDispatch();
