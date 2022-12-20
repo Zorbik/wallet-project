@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logInUser } from '../../redux/userAuth/userAuthOperations';
+
 import {
   Logo,
   LogoSvg,
@@ -11,7 +12,7 @@ import {
   LogBtn,
   RegBtn,
   AuthForm,
-} from './LoginPageStyled';
+} from './LoginFormStyled';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -81,7 +82,6 @@ export default function LoginPage() {
             />
           </InputIcon>
         </AuthLabel>
-
         <AuthLabel>
           <Input
             placeholder="Password"
