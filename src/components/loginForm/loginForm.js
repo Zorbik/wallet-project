@@ -82,7 +82,6 @@ export default function LoginPage() {
             />
           </InputIcon>
         </AuthLabel>
-
         <AuthLabel>
           <Input
             placeholder="Password"

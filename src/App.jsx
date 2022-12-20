@@ -1,12 +1,10 @@
-import { Suspense, useEffect } from 'react';
+
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { Route, Routes } from 'react-router-dom';
 // import { Layout, PrivateRoute, PublicRoute } from './components';
 // import { Contacts, Home, Login, NotFoundPage, Registration } from './pages';
 import { getCurrentUser } from './redux/userAuth/userAuthOperations';
-
-import LoginPages from './pages/loginPage/loginPage';
-import { fetchCategories } from './redux/categoriesTransactions/categoriesOperations';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,15 +13,11 @@ function App() {
     dispatch(getCurrentUser());
   }, [dispatch]);
 
-  // const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, [dispatch]);
+ 
   return (
     <>
       <div>
-        <LoginPages />
+        ваыварыпр
       </div>
       {/* <Suspense fallback={false}>
         <Routes>

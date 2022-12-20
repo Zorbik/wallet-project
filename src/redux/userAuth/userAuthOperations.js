@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://wallet.goit.ua/';
+axios.defaults.baseURL = 'https://wallet.goit.ua/api';
 
 const token = {
   set(token) {
@@ -17,18 +17,19 @@ export const createNewUser = createAsyncThunk(
   'userAuth/register',
   async (newUserData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/auth/sign-up', newUserData);
-      console.log(response);
-      //   token.set(data.token);
+      const { data } = await axios.post('/auth/sign-up', newUserData);
+      console.log('data', data);
+      token.set(data.token);
       toast.success(`Реєстрація пройшла успішно!`);
 
-      //   return data;
-    } catch ({ response, message }) {
-      switch (response.status) {
+      return data;
+    } catch ({ response }) {
+      const { statusCode, message } = response.data;
+      switch (statusCode) {
         case 400:
-          return rejectWithValue('Validation error');
+          return rejectWithValue(message);
         case 409:
-          return rejectWithValue('User with such email already exists');
+          return rejectWithValue(message);
 
         default:
           return rejectWithValue(message);
@@ -41,23 +42,24 @@ export const logInUser = createAsyncThunk(
   'userAuth/login',
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/auth/sign-in', userData);
-      console.log('response', response);
+      const { data } = await axios.post('/auth/sign-in', userData);
+      console.log('data', data);
 
-      //   token.set(data.token);
+      token.set(data.token);
 
-      //   toast.success(`Вхід виконан успішно!`);
+      toast.success(`Вхід виконан успішно!`);
 
-      //   return data;
-    } catch ({ response, message }) {
-      switch (response.status) {
+      return data;
+    } catch ({ response }) {
+      const { statusCode, message } = response.data;
+      switch (statusCode) {
         case 400:
-          return rejectWithValue('Validation error');
+          return rejectWithValue(message);
         case 403:
-          return rejectWithValue('Provided password is incorrect');
+          return rejectWithValue(message);
 
         case 404:
-          return rejectWithValue('User with such email not found');
+          return rejectWithValue(message);
 
         default:
           return rejectWithValue(message);
@@ -70,14 +72,15 @@ export const logOut = createAsyncThunk(
   'userAuth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await axios.delete('/api/auth/sign-out');
+      await axios.delete('/auth/sign-out');
       token.unset();
 
-      //   toast.success(`До скорої зустрічі!`);
-    } catch ({ response, message }) {
-      switch (response.status) {
+      toast.success(`До скорої зустрічі!`);
+    } catch ({ response }) {
+      const { statusCode, message } = response.data;
+      switch (statusCode) {
         case 401:
-          return rejectWithValue('Bearer auth failed');
+          return rejectWithValue(message);
         default:
           return rejectWithValue(message);
       }
@@ -88,16 +91,18 @@ export const logOut = createAsyncThunk(
 export const getCurrentUser = createAsyncThunk(
   'userAuth/refresh',
   async (_, { getState, rejectWithValue }) => {
-    const persistedToken = getState().user.token;
+    const persistedToken = getState().userData.token;
     if (!persistedToken) return rejectWithValue('Bearer auth failed');
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/api/users/current');
+      const { data } = await axios.get('/users/current');
+      console.log('data', data);
       return data;
-    } catch ({ response, message }) {
-      switch (response.status) {
+    } catch ({ response }) {
+      const { statusCode, message } = response.data;
+      switch (statusCode) {
         case 401:
-          return rejectWithValue('Bearer auth failed');
+          return rejectWithValue(message);
         default:
           return rejectWithValue(message);
       }
