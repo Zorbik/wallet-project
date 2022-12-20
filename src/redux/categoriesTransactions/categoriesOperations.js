@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getTransactionCategories } from './transactionsApi';
+import { getTransactionCategories } from './categoriesApi';
 
 export const fetchCategories = createAsyncThunk(
   'transactions/getCategories',
@@ -9,7 +9,6 @@ export const fetchCategories = createAsyncThunk(
     try {
       const response = await getTransactionCategories();
       // При успішному запиті повертаємо проміс із даними
-      console.log(response);
       return response;
     } catch (e) {
       // При помилці запиту повертаємо проміс
