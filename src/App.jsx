@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { Route, Routes } from 'react-router-dom';
@@ -13,12 +12,9 @@ function App() {
     dispatch(getCurrentUser());
   }, [dispatch]);
 
- 
   return (
     <>
-      <div>
-        ваыварыпр
-      </div>
+      <div>ваыварыпр</div>
       {/* <Suspense fallback={false}>
         <Routes>
           <Route path="/" element={<Layout />}>

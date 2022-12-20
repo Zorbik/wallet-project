@@ -24,16 +24,7 @@ export const createNewUser = createAsyncThunk(
 
       return data;
     } catch ({ response }) {
-      const { statusCode, message } = response.data;
-      switch (statusCode) {
-        case 400:
-          return rejectWithValue(message);
-        case 409:
-          return rejectWithValue(message);
-
-        default:
-          return rejectWithValue(message);
-      }
+      return rejectWithValue(response.data.message);
     }
   }
 );
@@ -51,19 +42,7 @@ export const logInUser = createAsyncThunk(
 
       return data;
     } catch ({ response }) {
-      const { statusCode, message } = response.data;
-      switch (statusCode) {
-        case 400:
-          return rejectWithValue(message);
-        case 403:
-          return rejectWithValue(message);
-
-        case 404:
-          return rejectWithValue(message);
-
-        default:
-          return rejectWithValue(message);
-      }
+      return rejectWithValue(response.data.message);
     }
   }
 );
@@ -77,13 +56,7 @@ export const logOut = createAsyncThunk(
 
       toast.success(`До скорої зустрічі!`);
     } catch ({ response }) {
-      const { statusCode, message } = response.data;
-      switch (statusCode) {
-        case 401:
-          return rejectWithValue(message);
-        default:
-          return rejectWithValue(message);
-      }
+      return rejectWithValue(response.data.message);
     }
   }
 );
@@ -99,13 +72,7 @@ export const getCurrentUser = createAsyncThunk(
       console.log('data', data);
       return data;
     } catch ({ response }) {
-      const { statusCode, message } = response.data;
-      switch (statusCode) {
-        case 401:
-          return rejectWithValue(message);
-        default:
-          return rejectWithValue(message);
-      }
+      return rejectWithValue(response.data.message);
     }
   }
 );

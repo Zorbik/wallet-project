@@ -50,7 +50,7 @@ export const userAuthSlice = createSlice({
         state.isPending = true;
       })
       .addCase(createNewUser.rejected, (state, { payload }) => {
-        toast.error(`Операція завершилась помилкою: ${payload}!`);
+        toast.error(payload);
         state.isLoggedIn = false;
       })
       .addCase(logInUser.rejected, (state, { payload }) => {
