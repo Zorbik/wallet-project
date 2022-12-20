@@ -1,12 +1,5 @@
 import axios from 'axios';
 
-const $publicHost = axios.create({
-  baseURL: 'https://wallet.goit.ua/',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
 const $privateHost = axios.create({
   baseURL: 'https://wallet.goit.ua/',
   headers: {
