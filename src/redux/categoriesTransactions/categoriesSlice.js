@@ -8,10 +8,9 @@ const initialState = {
 };
 
 export const categoriesSlice = createSlice({
-  // Ім'я слайсу
   name: 'categories',
-  // Початковий стан редюсера слайсу
   initialState: initialState,
+
   extraReducers: builder => {
     builder.addCase(fetchCategories.pending, (state, action) => {
       state.isLoading = true;
