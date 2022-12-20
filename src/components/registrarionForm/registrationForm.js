@@ -13,7 +13,7 @@ import {
   AuthForm,
 } from './RegisterPageStyled';
 
-export default function RegisterPage() {
+export default function RegisterForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

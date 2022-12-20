@@ -2,7 +2,7 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 import  {Logo, LogoSvg, Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, AuthForm} from "./LoginPageStyled"
 
-export default function LoginPage(){
+export default function LoginForm(){
     // const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
