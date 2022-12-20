@@ -18,26 +18,31 @@ const authInterceptor = config => {
   //   config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
   config.headers[
     'Authorization'
-  ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiI1ZTg1ODYyZC1iNmEwLTRkYjMtODg4Yi1mODRiMmYxN2Y0NjkiLCJpYXQiOjE2NzE0NTM2MjksImV4cCI6MTAwMDAwMDE2NzE0NTM2Mjh9.v-mFGHReASMMkIb8zISOJlXqMBfObBMlZvvSos52ciM`;
+  ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiIzNTNlMTM0Ny02NTlkLTRlYTAtOTUzNi02MTA1MTNjODg3MTQiLCJpYXQiOjE2NzE1Mjc2MzQsImV4cCI6MTAwMDAwMDE2NzE1Mjc2MzR9.oGhGNZXYMpZ1VfHdI5MHKmj6lTS4RPn2seO08FIDaeY`;
   return config;
 };
 
 $privateHost.interceptors.request.use(authInterceptor);
 
-export const getTransactionCategories = async () => {
-  const { data } = await $privateHost.get('api/transaction-categories');
+export const addTransactionRequest = async transactionForm => {
+  const { data } = await $privateHost.post(
+    '/api/transactions',
+    transactionForm
+  );
 
   return data;
 };
 
-// export const addContactRequest = async contact => {
-//   const { data } = await $privateHost.post('contacts', contact);
+export const getTransactionRequest = async () => {
+  const { data } = await $privateHost.get('/api/transactions');
 
-//   return data;
-// };
+  return data;
+};
 
-// export const deleteContactRequest = async contactId => {
-//   const { data } = await $privateHost.delete(`contacts/${contactId}`);
+export const deleteTransactionRequest = async transactionId => {
+  const { data } = await $privateHost.delete(
+    `/api/transactions/${transactionId}`
+  );
 
-//   return data;
-// };
+  return data;
+};
