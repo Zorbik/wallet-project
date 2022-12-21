@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Ellipse_dec_1x from '../../images/dec/Ellipse_dec_1x.png';
 import Ellipse_2_dec_1x from '../../images/dec/Ellipse_2_dec_1x.png';
 
-export const LoginPageStyled = styled.div`
+export const RegistrationPageStyled = styled.div`
   display: flex;
   width: 1280px;
   align-items: center;
@@ -13,7 +13,8 @@ export const LoginPageStyled = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const LoginPageImg = styled.div`
+
+export const RegistrationPageImg = styled.div`
       display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,10 +39,10 @@ export const LoginPageImg = styled.div`
   }
 `;
 
-export const LoginPageForm = styled.div`
+export const RegisterPageForm = styled.div`
   width: 57%;
   height: 100%;
-  padding: 136px 91px 116px 107px;
+  padding: 52px 91px 52px 107px
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
   margin: 0 auto;
