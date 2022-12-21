@@ -1,16 +1,18 @@
 import LoginForm from '../../components/loginForm/loginForm';
-import { LoginFormStyled } from './loginPageStyled';
+import { LoginPageStyled, LoginPageForm } from './loginPageStyled';
 import Frame from '../../images/Frame.svg';
 
 const LoginPage = () => {
   return (
-    <LoginFormStyled>
+    <LoginPageStyled>
       <div>
         <img src={Frame} alt="" width="436" />
         <h1> Finance App </h1>
       </div>
-      <LoginForm />
-    </LoginFormStyled>
+      <LoginPageForm>
+        <LoginForm />
+      </LoginPageForm>
+    </LoginPageStyled>
   );
 };
 export default LoginPage;

@@ -1,14 +1,18 @@
-import RegisterForm from "../../components/registrarionForm/registrationForm";
+import RegisterForm from "../../components/registrationForm/registrationForm";
+import Group from '../../images/Group.svg';
+import { RegisterPageForm, RegistrationPageStyled } from "./registrationPageStyled";
 
 const RegistrationPage = () => {
   return (
-    <div>
+    <RegistrationPageStyled>
       <div>
-        <img  alt="" width="436" />
+        <img src={Group} alt="" width="436" />
         <h1> Finance App </h1>
       </div>
+      <RegisterPageForm>
       <RegisterForm />
-    </div>
+      </RegisterPageForm>
+    </RegistrationPageStyled>
   );
 };
 export default RegistrationPage;

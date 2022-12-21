@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginPageStyled = styled.div`
+export const RegistrationPageStyled = styled.div`
   display: flex;
   min-width: 1280px;
   align-items: center;
@@ -22,7 +22,6 @@ export const LoginPageStyled = styled.div`
     // position: absolute;
     width: 435.2px;
     height: 419.5px;
-
   }
 
   h1 {
@@ -32,11 +31,10 @@ export const LoginPageStyled = styled.div`
     margin-bottom: 78px;
   }
 `;
-
-export const LoginPageForm = styled.span`
+export const RegisterPageForm = styled.span`
   // margin: 0 auto;
   width: 721px;
-  margin: 136px 91px 116px 107px;
+  margin: 52px 91px 52px 107px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
 `;
