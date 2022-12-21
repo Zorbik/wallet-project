@@ -1,3 +1,4 @@
+
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -134,6 +135,7 @@ export default function RegisterForm() {
             />
           </InputIcon>
         </AuthLabel>
+
         {errors.confirmPassword && touched.confirmPassword ? (
             <div>{errors.confirmPassword}</div>
           ) : null}

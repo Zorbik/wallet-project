@@ -4,7 +4,6 @@ import {
   RegistrationPageImg,
   RegisterPageForm,
   RegistrationPageStyled,
-  
 } from './registrationPageStyled';
 
 const RegistrationPage = () => {
