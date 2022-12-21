@@ -14,11 +14,11 @@ export const addTransaction = createAsyncThunk(
 
   async (transactionForm, thunkAPI) => {
     try {
-      const response = await axios.post('/api/transactions', transactionForm);
+      const response = await axios.post('/transactions', transactionForm);
 
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data.message);
     }
   }
 );
@@ -28,11 +28,11 @@ export const getTransactions = createAsyncThunk(
 
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/api/transactions');
+      const response = await axios.get('/transactions');
 
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data.message);
     }
   }
 );
@@ -41,11 +41,11 @@ export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async (transactionId, thunkAPI) => {
     try {
-      await axios.delete(`/api/transactions/${transactionId}`);
+      await axios.delete(`/transactions/${transactionId}`);
 
       return transactionId;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data.message);
     }
   }
 );

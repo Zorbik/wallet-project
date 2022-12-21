@@ -5,11 +5,11 @@ export const fetchCategories = createAsyncThunk(
   'transactions/getCategories',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('api/transaction-categories');
+      const response = await axios.get('/transaction-categories');
 
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data.message);
     }
   }
 );
