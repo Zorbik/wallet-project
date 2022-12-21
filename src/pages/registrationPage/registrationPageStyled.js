@@ -35,6 +35,7 @@ export const RegisterPageForm = styled.span`
   // margin: 0 auto;
   width: 721px;
   margin: 52px 91px 52px 107px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(25px);
+  background-color: #FFFFFF;
+//   background: rgba(255, 255, 255, 0.4);
+//   backdrop-filter: blur(25px);
 `;
