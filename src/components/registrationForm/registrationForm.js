@@ -1,5 +1,7 @@
-import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 import { createNewUser } from '../../redux/userAuth/userAuthOperations';
 import {
   LogoSvg,
@@ -11,34 +13,31 @@ import {
   LogBtn,
   RegBtn,
   AuthForm,
-} from './RegisterPageStyled';
+} from './RegistrationFormStyled';
+
+
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  
 
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'name':
-        return setName(value);
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(createNewUser({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
+  const SignupSchema = Yup.object({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+    .min(6, 'Too Short!')
+    .max(12, 'Too Long!')
+    .required('Required'),
+    confirmPassword: Yup.string()
+      .min(6, 'Too Short!')
+      .max(12, 'Too Long!')
+      .required('Required'),
+    firstName: Yup.string()
+    .min(1, 'Too Short!')
+    .max(12, 'Too Long!')
+    .required('Required'),
+     
+   
+  });
 
   return (
     <Box>
@@ -69,14 +68,31 @@ export default function RegisterForm() {
         </LogoSvg>
         Wallet
       </Logo>
-
-      <AuthForm onSubmit={handleSubmit} autoComplete="off">
-        <AuthLabel>
+      <div>
+    <Formik
+      initialValues={{
+        firstName: '',
+        password: '',
+        email: '',
+        confirmPassword: '',
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={values => {
+        dispatch(createNewUser({
+          email: values.email,
+          password: values.password,
+          username: values.firstName,
+        }))
+      }}
+    >
+      {({ errors, touched, values, handleChange }) => (
+        <Form>
+          <AuthLabel>
           <Input
-            placeholder="E-mail"
             onChange={handleChange}
+            value={values.email}
+            placeholder="E-mail"
             name="email"
-            value={email}
           ></Input>
           <InputIcon width="21" height="16">
             <path
@@ -84,15 +100,33 @@ export default function RegisterForm() {
               fill="#E0E0E0"
             />
           </InputIcon>
+          {errors.email && touched.email ? <div>{errors.email}</div> : null}
         </AuthLabel>
-
         <AuthLabel>
           <Input
-            placeholder="Password"
             onChange={handleChange}
+            value={values.password}
+            placeholder="Password"
             name="password"
             type="password"
-            value={password}
+          ></Input>
+          <InputIcon width="16" height="21">
+            <path
+              d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
+              fill="#E0E0E0"
+            />
+          </InputIcon>
+        </AuthLabel>
+        {errors.password && touched.password ? (
+            <div>{errors.password}</div>
+          ) : null}
+         <AuthLabel>
+          <Input 
+          onChange={handleChange}
+          value={values.confirmPassword}
+           placeholder="Confirm password"
+           name="confirmPassword"
+           type="password"
           ></Input>
           <InputIcon width="16" height="21">
             <path
@@ -102,18 +136,16 @@ export default function RegisterForm() {
           </InputIcon>
         </AuthLabel>
 
-        <AuthLabel>
-          <Input placeholder="Confirm password"></Input>
-          <InputIcon width="16" height="21">
-            <path
-              d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
-              fill="#E0E0E0"
-            />
-          </InputIcon>
-        </AuthLabel>
-
-        <AuthLabel>
-          <Input placeholder="First name"></Input>
+        {errors.confirmPassword && touched.confirmPassword ? (
+            <div>{errors.confirmPassword}</div>
+          ) : null}
+         <AuthLabel>
+          <Input 
+           onChange={handleChange}
+           value={values.firstName}
+           placeholder="First name"
+           name="firstName"
+          ></Input>
           <InputIcon width="18" height="18">
             <path
               d="M0 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2H2C.89 0 0 .9 0 2Zm12 4c0 1.66-1.34 3-3 3S6 7.66 6 6s1.34-3 3-3 3 1.34 3 3Zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H3v-1Z"
@@ -121,12 +153,16 @@ export default function RegisterForm() {
             />
           </InputIcon>
         </AuthLabel>
-
+        {errors.firstName && touched.firstName ? (
+            <div>{errors.firstName}</div>
+          ) : null}
         <div>
-          <RegBtn type="submit">REGISTER</RegBtn>
-          <LogBtn type="submit">LOG IN</LogBtn>
-        </div>
-      </AuthForm>
+           <RegBtn type="submit" >REGISTER</RegBtn>
+           <LogBtn>LOG IN</LogBtn>
+         </div>
+        </Form>
+      )}
+    </Formik>
+  </div>
     </Box>
-  );
-}
+  )}
