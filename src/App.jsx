@@ -6,7 +6,7 @@
 // import { getCurrentUser } from './redux/userAuthOperations';
 
 import LoginPage from "./pages/loginPage/loginPage";
-
+import RegistrationPage from "./pages/registrationPage/registrationPage";
 
 function App() {
   //   const dispatch = useDispatch();
