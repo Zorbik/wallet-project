@@ -11,7 +11,7 @@ export const RegistrationPageStyled = styled.div`
   background-image: url(${Ellipse_dec_1x}), url(${Ellipse_2_dec_1x});
   background-position: bottom left, top right;
   background-repeat: no-repeat;
-  `;
+`;
 
 
 export const RegistrationPageImg = styled.div`
