@@ -1,29 +1,22 @@
-import { useState } from "react";
-// import { useDispatch } from "react-redux";
-import  {Logo, LogoSvg, Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, AuthForm} from "./LoginPageStyled"
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import { useDispatch } from "react-redux";
+import  {Logo, LogoSvg, Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, AuthForm} from "./LoginFormStyled"
+import { logInUser } from "../../redux/userAuth/userAuthOperations";
 
-export default function LoginPage(){
-    // const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default function LoginForm(){
+    const dispatch = useDispatch();
+    
 
-    const handleChange = ({target: {name, value}}) => {
-        switch(name) {
-            case 'email':
-                return setEmail(value);
-            case 'password':
-                return setPassword(value);   
-            default:
-                return;         
-        }
-    };
+    const SignupSchema = Yup.object({
+      email: Yup.string().email('Invalid email').required('Required'),
+      password: Yup.string()
+      .min(6, 'Too Short!')
+      .max(12, 'Too Long!')
+      .required('Required'),
+    });
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        // dispatch(operations.logIn({email, password}));
-        setEmail('');
-        setPassword('');
-    };
+
 
     return(
         <Box>
@@ -36,14 +29,29 @@ export default function LoginPage(){
             Wallet
             </Logo>
            
-
-            <AuthForm  onSubmit={handleSubmit}>
+            <Formik
+              initialValues={{
+                
+                password: '',
+                email: '',
+               
+              }}
+              validationSchema={SignupSchema}
+              onSubmit={values => {
+               dispatch(logInUser({
+                email: values.email,
+                password: values.password,
+               }))
+              }}
+            >
+              {({ errors, touched, values, handleChange }) => (
+            <Form>
             <AuthLabel>
               <Input
-                placeholder="E-mail"
-                onChange={handleChange}
-                name="email"
-                value={email}
+                 onChange={handleChange}
+                 value={values.email}
+                 placeholder="E-mail"
+                 name="email"
               ></Input>
               <InputIcon width="21" height="16" >
                 <path
@@ -51,15 +59,16 @@ export default function LoginPage(){
                   fill="#E0E0E0"
                 />
               </InputIcon>
+              {errors.email && touched.email ? <div>{errors.email}</div> : null}
             </AuthLabel>
 
             <AuthLabel>
               <Input
-                placeholder="Password"
-                onChange={handleChange}
-                name="password"
-                type="password"
-                value={password}
+                 onChange={handleChange}
+                 value={values.password}
+                 placeholder="Password"
+                 name="password"
+                 type="password"
               ></Input>
               <InputIcon width="16" height="21" >
                 <path
@@ -68,17 +77,17 @@ export default function LoginPage(){
                 />
               </InputIcon>
             </AuthLabel>
+            {errors.password && touched.password ? (
+            <div>{errors.password}</div>
+          ) : null}
 
-            <LogBtn  type="submit">
-              LOG IN
-            </LogBtn>
+            <LogBtn  type="submit">LOG IN</LogBtn> 
 
-            
-            <RegBtn type="submit">
-            REGISTER
-            </RegBtn>
+            <RegBtn >REGISTER</RegBtn>
            
-          </AuthForm>
+          </Form>
+          )}
+          </Formik>
         </Box>
     )
 }
