@@ -23,6 +23,7 @@ const TableTransactions = () => {
 
   useEffect(() => {
     dispatch(getTransactions());
+
     dispatch(fetchCategories());
   }, [dispatch]);
 

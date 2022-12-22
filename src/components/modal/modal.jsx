@@ -5,7 +5,6 @@ import 'react-datetime/css/react-datetime.css';
 import Select from 'react-select';
 import moment from 'moment';
 import Modal from './backdrop';
-import { fetchCategories } from '../../redux/categoriesTransactions/categoriesOperations';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
 
 import {
@@ -35,11 +34,6 @@ export const ModalTransactions = ({ onClose }) => {
   const dispatch = useDispatch();
   const [userChoice, setUserChoice] = useState({});
   const { categories } = useSelector(state => state.categoriesData);
-  console.log(categories);
-
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, [dispatch]);
 
   const expenseCategories = categories
     .filter(category => category.type === 'EXPENSE')
@@ -97,9 +91,7 @@ export const ModalTransactions = ({ onClose }) => {
     setUserChoice(e);
   };
 
-  useEffect(() => {
-    console.log('userChoice', userChoice);
-  }, [userChoice]);
+  useEffect(() => {}, [userChoice]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -116,7 +108,6 @@ export const ModalTransactions = ({ onClose }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const category = findCategory(userChoice.value) || categories[10];
-    // ( function () {
     const userSum = Number(sum).toFixed(2);
     dispatch(
       addTransaction({
@@ -257,13 +248,13 @@ export const ModalTransactions = ({ onClose }) => {
             value={comment}
             placeholder="Comment"
             autoComplete="off"
-            maxLength="300"
+            maxLength="100"
             // resize= "none"
             // minRows={1}
             // maxRows={3}
             // size="30"
             required={false}
-            pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
+            // pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
         </>
 
