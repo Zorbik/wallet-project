@@ -157,7 +157,7 @@ export default function RegisterForm() {
               ) : null}
               <div>
                 <RegBtn type="submit">REGISTER</RegBtn>
-                <LogBtn>LOG IN</LogBtn>
+                <LogBtn to="/login">LOG IN</LogBtn>
               </div>
             </Form>
           )}

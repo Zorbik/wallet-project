@@ -42,7 +42,7 @@ export const RegistrationPageImg = styled.div`
 export const RegisterPageForm = styled.div`
   width: 57%;
   height: 100%;
-  padding: 52px 91px 52px 107px
+  padding: 52px 91px 52px 107px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
   margin: 0 auto;
