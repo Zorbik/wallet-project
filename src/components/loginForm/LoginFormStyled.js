@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Box = styled.div`
@@ -80,7 +81,7 @@ export const LogBtn = styled.button`
   }
 `;
 
-export const RegBtn = styled.button`
+export const RegBtn = styled(Link)`
   display: block;
   width: 280px;
   height: 50px;
