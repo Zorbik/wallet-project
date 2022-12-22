@@ -1,20 +1,20 @@
-import { Suspense } from 'react';
-// import { useDispatch } from 'react-redux';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { PrivateRoute } from './components/navigation/PrivateRoute';
 import { PublicRoute } from './components/navigation/PublicRoute';
 import { Home, LoginPage, RegisterPage, Statistic } from './pages';
-// import { getCurrentUser } from './redux/userAuthOperations';
+import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
 // import RegistrationPage from "./pages/registrationPage/registrationPage";
 
 function App() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getCurrentUser());
-  //   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <>

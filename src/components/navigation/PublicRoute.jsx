@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-export const PublicRoute = ({ children, restricted = false }) => {
-  const isLoggedIn = useSelector(state => state.userData.isLoggedIn);
-  return !isLoggedIn && restricted ? children : <Navigate to="/" />;
+export const PublicRoute = ({ children }) => {
+  const token = useSelector(state => state.userData.token);
+  return !token ? children : <Navigate to="/" />;
 };
