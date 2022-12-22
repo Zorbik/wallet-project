@@ -31,7 +31,7 @@ const TableTransactions = () => {
 
   const showCategoryName = categoryId => {
     const foundCategory = categories.filter(el => el.id === categoryId);
-    return foundCategory[0].name;
+    return foundCategory[0]?.name;
   };
   return (
     <Table>

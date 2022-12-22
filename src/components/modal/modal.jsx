@@ -60,7 +60,7 @@ export const ModalTransactions = ({ onClose }) => {
 
     const newDate = new Date(reversed);
 
-   return  newDate.toISOString();
+    return newDate.toISOString();
   };
 
   const [initialState, setState] = useState({
@@ -109,30 +109,24 @@ export const ModalTransactions = ({ onClose }) => {
     }));
   };
 
-  const data = useSelector(state => state.categoriesData);
-  console.log(data);
-
   const findCategory = value => {
-    return data.categories.find(category => category.name === value);
+    return categories.find(category => category.name === value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const category = findCategory(userChoice.value);
-    // console.log("category", category)
+    const category = findCategory(userChoice.value) || categories[10];
     // ( function () {
     const userSum = Number(sum).toFixed(2);
     dispatch(
-      addTransaction(
-               {
-          transactionDate: toIsoDate(selectedDate),
-          type: category.type,
-          categoryId: category.id,
-          comment: comment || '',
-          amount:
-            category.type === 'EXPENSE' ? -Number(userSum) : Number(userSum),
-        }
-      )
+      addTransaction({
+        transactionDate: toIsoDate(selectedDate),
+        type: category?.type,
+        categoryId: category?.id,
+        comment: comment || '',
+        amount:
+          category?.type === 'EXPENSE' ? -Number(userSum) : Number(userSum),
+      })
     );
 
     onClose();
