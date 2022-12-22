@@ -17,30 +17,29 @@ export const Container = styled(Box)`
   }
 `;
 export const NavMenu = styled.div`
-display: flex;
-flex-direction: column;
-gap: 12px;
-margin-top: 40px;
-margin-bottom: 28px;
-background-color: rgba(255, 255, 255, 0);
-`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 28px;
+  background-color: rgba(255, 255, 255, 0);
+`;
 export const Link = styled(NavLink)`
-height: 18px;
-display: flex;
-align-items: center;
-gap: 20px;
-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 18px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-span {
-  display: inline-block;
-  font-family: Poppins, sans-serif;
-  font-size: 18px;
-  color: #000;
-}
-&.active span {
-  font-weight: 700;
-}
-}
+  span {
+    display: inline-block;
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    color: #000;
+  }
+  &.active span {
+    font-weight: 700;
+  }
 `;
 
 export const TotalBalanceWrapper = styled.div`
