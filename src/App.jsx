@@ -12,6 +12,8 @@ import LoginPage from './pages/loginPage/loginPage';
 import RegistrationPage from './pages/registrationPage/registrationPage';
 import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
+// import RegistrationPage from "./pages/registrationPage/registrationPage";
+
 function App() {
   const dispatch = useDispatch();
   const { token } = useSelector(state => state.userData);
