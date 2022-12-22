@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'react-datetime/css/react-datetime.css';
@@ -7,7 +7,6 @@ import moment from 'moment';
 import Modal from './backdrop';
 import { fetchCategories } from '../../redux/categoriesTransactions/categoriesOperations';
 import { addTransaction } from '../../redux/transactions/transactionsOperations';
-
 
 import {
   CloseAddModal,
@@ -34,6 +33,7 @@ import {
 
 export const ModalTransactions = ({ onClose }) => {
   const dispatch = useDispatch();
+  const [userChoice, setUserChoice] = useState({});
   const { categories } = useSelector(state => state.categoriesData);
   console.log(categories);
 
@@ -55,6 +55,14 @@ export const ModalTransactions = ({ onClose }) => {
     setSelectedDate(moment(e._d).format('DD.MM.YYYY'));
   };
 
+  const toIsoDate = date => {
+    const reversed = date.split('.').reverse().join('-');
+
+    const newDate = new Date(reversed);
+
+   return  newDate.toISOString();
+  };
+
   const [initialState, setState] = useState({
     date: selectedDate,
     type: false,
@@ -63,7 +71,7 @@ export const ModalTransactions = ({ onClose }) => {
     sum: '',
     checked: true,
   });
-  const { category, comment, sum, checked } = initialState;
+  const { comment, sum, checked } = initialState;
 
   useEffect(() => {
     setState(items => ({
@@ -86,7 +94,12 @@ export const ModalTransactions = ({ onClose }) => {
       ...items,
       category: e.value,
     }));
+    setUserChoice(e);
   };
+
+  useEffect(() => {
+    console.log('userChoice', userChoice);
+  }, [userChoice]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -96,44 +109,42 @@ export const ModalTransactions = ({ onClose }) => {
     }));
   };
 
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
-      (async function () {
-        const userSum = Number(sum).toFixed(2);
-        const res = await dispatch(
-          addTransaction(
-            //             {
-            //   "transactionDate": "string",
-            //   "type": "INCOME",
-            //   "categoryId": "string",
-            //   "comment": "string",
-            //   "amount": 0
-            // }
+  const data = useSelector(state => state.categoriesData);
+  console.log(data);
 
-            {
-              transactionDate: selectedDate,
-              amount: Number(userSum),
-              comment: comment || 'nothing to explain',
-              type: 'EXPENSE',
-              categoryId: category || 'Income',
-            }
-          )
-        );
-        console.log(res);
-      })();
-      onClose();
-    },
-    [onClose, sum, dispatch, selectedDate, comment, category]
-  );
+  const findCategory = value => {
+    return data.categories.find(category => category.name === value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const category = findCategory(userChoice.value);
+    // console.log("category", category)
+    // ( function () {
+    const userSum = Number(sum).toFixed(2);
+    dispatch(
+      addTransaction(
+               {
+          transactionDate: toIsoDate(selectedDate),
+          type: category.type,
+          categoryId: category.id,
+          comment: comment || '',
+          amount:
+            category.type === 'EXPENSE' ? -Number(userSum) : Number(userSum),
+        }
+      )
+    );
+
+    onClose();
+  };
 
   return (
     <Modal onClose={onClose}>
       <CloseAddModal type="button" onClick={onClose}>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M1 1L17 17" stroke="black" />
-          <path d="M1 17L17 0.999999" stroke="black" /> 
-        </svg> 
+          <path d="M1 17L17 0.999999" stroke="black" />
+        </svg>
       </CloseAddModal>
       <ModalTitle>Add transaction</ModalTitle>
       <AddTransactionForm onSubmit={handleSubmit}>
@@ -246,10 +257,9 @@ export const ModalTransactions = ({ onClose }) => {
 
         <>
           <CommentInput
-            as="input"
             name="comment"
             type="text"
-            onChange={() => {}}
+            onChange={handleChange}
             value={comment}
             placeholder="Comment"
             autoComplete="off"

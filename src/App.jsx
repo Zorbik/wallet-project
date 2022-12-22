@@ -25,8 +25,8 @@ function App() {
 
   return (
     <>
-      <LoginPage />
-      {/* {token && <ModalTransactions />} */}
+      {/* <LoginPage /> */}
+      {token && <ModalTransactions />}
       {/* <Suspense fallback={false}>
         <Routes>
           <Route path="/" element={<Layout />}>

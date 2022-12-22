@@ -112,7 +112,7 @@ export const AddTransactionForm = styled.form`
 
 export const ContextMenuIcon = styled.svg`
   position: absolute;
-  right: 10px;
+  right: 15px;
   top: 15px;
   width: 18px;
   height: 9px;
@@ -214,6 +214,7 @@ export const DateIcon = styled.svg`
 
   @media screen and (max-width: 768px) {
     top: 19px;
+    right: 15px;
   }
 `;
 
