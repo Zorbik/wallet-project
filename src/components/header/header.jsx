@@ -1,13 +1,20 @@
 import { Box } from '../Box';
 import { Toaster } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import { StyledBox, StyledButton, StyledLink } from './Appbar.styled';
+import { logOut } from '../../redux/userAuth/userAuthOperations';
 import { Logo, LogoSvg } from '../loginForm/LoginFormStyled';
+import { LogOutBtn, LogOutSpan, LogOutSvg, UserName } from './header.styled';
 
 export const Header = () => {
   //   const isLoggedIn = useSelector(state => state.userData.isLoggedIn);
   const user = useSelector(state => state.userData.user);
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(logOut());
+  };
 
   return (
     <Box
@@ -15,6 +22,7 @@ export const Header = () => {
       height="80px"
       display="flex"
       justifyContent="space-between"
+      alignItems="center"
     >
       <Logo>
         <LogoSvg
@@ -43,14 +51,14 @@ export const Header = () => {
         </LogoSvg>
         Wallet
       </Logo>
-      <Box>
-        <p>{user.username}</p>
-        <button type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-            <path d="M20.051 23.237h2.499v4.997a3.752 3.752 0 0 1-3.748 3.748H3.748A3.752 3.752 0 0 1 0 28.234V3.748A3.752 3.752 0 0 1 3.748 0h15.054a3.752 3.752 0 0 1 3.748 3.748v4.997h-2.499V3.748a1.25 1.25 0 0 0-1.249-1.249H3.748a1.25 1.25 0 0 0-1.249 1.249v24.486a1.25 1.25 0 0 0 1.249 1.249h15.054a1.25 1.25 0 0 0 1.249-1.249v-4.997zm6.06-13.135-1.767 1.767 2.873 2.874H11.056v2.499h16.161l-2.873 2.873 1.767 1.767L32 15.993l-5.889-5.89z" />
-          </svg>
-          Exit
-        </button>
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <UserName>{user.username}</UserName>
+        <LogOutBtn type="button" onClick={onClick}>
+          <LogOutSvg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+            <path d="M11.2788 13.0708H12.6844V15.8818C12.6844 17.0443 11.7386 17.99 10.5761 17.99H2.10814C0.945786 17.99 0 17.0443 0 15.8818V2.10814C0 0.945786 0.945786 0 2.10814 0H10.5761C11.7386 0 12.6844 0.945786 12.6844 2.10814V4.91913H11.2788V2.10814C11.2788 1.72073 10.9637 1.40543 10.5761 1.40543H2.10814C1.72073 1.40543 1.40543 1.72073 1.40543 2.10814V15.8818C1.40543 16.2692 1.72073 16.5845 2.10814 16.5845H10.5761C10.9637 16.5845 11.2788 16.2692 11.2788 15.8818V13.0708ZM14.6872 5.68213L13.6934 6.67598L15.3096 8.29234H6.21922V9.69777H15.3096L13.6934 11.314L14.6872 12.3078L18 8.99506L14.6872 5.68213Z" />
+          </LogOutSvg>
+          <LogOutSpan>Exit</LogOutSpan>
+        </LogOutBtn>
       </Box>
       <Toaster position="top-center" reverseOrder={false} />
     </Box>
