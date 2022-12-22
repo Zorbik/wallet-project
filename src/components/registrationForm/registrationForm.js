@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { createNewUser } from '../../redux/userAuth/userAuthOperations';
+import ProgressSwitch from './ProgressSwitch';
 import {
   LogoSvg,
   Logo,
@@ -21,11 +22,13 @@ export default function RegisterForm() {
     password: Yup.string()
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
-      .required('Required'),
-    confirmPassword: Yup.string()
-      .min(6, 'Too Short!')
-      .max(12, 'Too Long!')
-      .required('Required'),
+      .required('Required')
+      confirmPassword: Yup
+      .string('Please, confirm your password')
+      .oneOf(
+        [Yup.ref('password')],
+        'Entered password doesn`t match the previous one'
+      ),
     firstName: Yup.string()
       .min(1, 'Too Short!')
       .max(12, 'Too Long!')
@@ -131,7 +134,9 @@ export default function RegisterForm() {
                     fill="#E0E0E0"
                   />
                 </InputIcon>
+               
               </AuthLabel>
+              <ProgressSwitch value={values.password.length} />
 
               {errors.confirmPassword && touched.confirmPassword ? (
                 <div>{errors.confirmPassword}</div>

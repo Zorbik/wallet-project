@@ -69,6 +69,15 @@ export const LogBtn = styled.button `
     color: white;
     margin-top: 30px;
     margin-bottom: 30px;
+
+    :hover,
+    :focus {
+      border: 1px solid #24cca7;
+      color: #24cca7;
+      background-color: #ffffff;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 `
 
 export const RegBtn = styled.button `
@@ -88,6 +97,16 @@ export const RegBtn = styled.button `
   background-color: #ffffff;
   color: #4a56e2;
   border: 1px solid #4a56e2;
+
+  :hover,
+  :focus {
+      color: #ffffff;
+      background-color: #4a56e2;
+      border: 1px solid #4a56e2;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
 `
 
 export const Form = styled.form `
@@ -101,4 +120,19 @@ margin-top: 60px;
 margin-bottom: 62px;
 margin-right: auto;
 margin-left: auto;
+`
+export const barContainer = styled.div`
+position: fixed;
+top: 0;
+left: 0;
+height: 25px;
+width: 100%;
+background-color: #dee4e6;
+z-index: 1;
+`
+
+export const progressBar = styled.div `
+height: 100%;
+background-color: #084b15;
+width: 10%;
 `

@@ -9,6 +9,7 @@ import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
 // import RegistrationPage from "./pages/registrationPage/registrationPage";
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+
       <Suspense fallback={false}>
         <Routes>
           <Route
