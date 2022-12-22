@@ -13,16 +13,15 @@ export const RegistrationPageStyled = styled.div`
   background-repeat: no-repeat;
 `;
 
-
 export const RegistrationPageImg = styled.div`
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 43%;
-    height: 100%;
-    padding: 150px 38px 28px 76px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43%;
+  height: 100%;
+  padding: 150px 38px 28px 76px;
+
   img {
     display: flex;
     flex-direction: column;
