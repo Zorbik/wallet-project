@@ -7,6 +7,19 @@ import { PublicRoute } from './components/navigation/PublicRoute';
 import { Home, LoginPage, RegisterPage, Statistic } from './pages';
 import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ModalTransactions } from './components/modal/modal';
+import LoginPage from './pages/loginPage/loginPage';
+import RegistrationPage from './pages/registrationPage/registrationPage';
+import { getCurrentUser } from './redux/userAuth/userAuthOperations';
+
+// import RegistrationPage from "./pages/registrationPage/registrationPage";
+
+function App() {
+  const dispatch = useDispatch();
+  const { token } = useSelector(state => state.userData);
+
 // import RegistrationPage from "./pages/registrationPage/registrationPage";
 
 
