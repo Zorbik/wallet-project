@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Box } from '../components/Box';
 import styled from 'styled-components';
-import { Header } from './header/Header';
+import { Header } from './header/header';
 import { AppBar } from './appBar/AppBar';
 
 export const Layout = () => {
