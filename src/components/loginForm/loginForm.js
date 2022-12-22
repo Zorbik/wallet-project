@@ -14,7 +14,6 @@ import {
 } from './LoginFormStyled';
 import { logInUser } from '../../redux/userAuth/userAuthOperations';
 
-
 export default function LoginForm() {
   const dispatch = useDispatch();
 
@@ -110,7 +109,7 @@ export default function LoginForm() {
 
             <LogBtn type="submit">LOG IN</LogBtn>
 
-            <RegBtn to="registration">REGISTER</RegBtn>
+            <RegBtn to="/registration">REGISTER</RegBtn>
           </Form>
         )}
       </Formik>
