@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { createNewUser } from '../../redux/userAuth/userAuthOperations';
+import ProgressSwitch from './ProgressSwitch';
 import {
   LogoSvg,
   Logo,
@@ -12,7 +13,6 @@ import {
   AuthLabel,
   LogBtn,
   RegBtn,
-  AuthForm,
 } from './RegistrationFormStyled';
 
 
@@ -24,13 +24,15 @@ export default function RegisterForm() {
   const SignupSchema = Yup.object({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
-    .min(6, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Required'),
-    confirmPassword: Yup.string()
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
       .required('Required'),
+      confirmPassword: Yup
+      .string('Please, confirm your password')
+      .oneOf(
+        [Yup.ref('password')],
+        'Entered password doesn`t match the previous one'
+      ),
     firstName: Yup.string()
     .min(1, 'Too Short!')
     .max(12, 'Too Long!')
@@ -69,72 +71,78 @@ export default function RegisterForm() {
         Wallet
       </Logo>
       <div>
-    <Formik
-      initialValues={{
-        firstName: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
-      }}
-      validationSchema={SignupSchema}
-      onSubmit={values => {
-        dispatch(createNewUser({
-          email: values.email,
-          password: values.password,
-          username: values.firstName,
-        }))
-      }}
-    >
-      {({ errors, touched, values, handleChange }) => (
-        <Form>
-          <AuthLabel>
-          <Input
-            onChange={handleChange}
-            value={values.email}
-            placeholder="E-mail"
-            name="email"
-          ></Input>
-          <InputIcon width="21" height="16">
-            <path
-              d="M18 0H2C.9 0 .00999999.9.00999999 2L0 14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V2l8 5 8-5v2Z"
-              fill="#E0E0E0"
-            />
-          </InputIcon>
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
-        </AuthLabel>
-        <AuthLabel>
-          <Input
-            onChange={handleChange}
-            value={values.password}
-            placeholder="Password"
-            name="password"
-            type="password"
-          ></Input>
-          <InputIcon width="16" height="21">
-            <path
-              d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
-              fill="#E0E0E0"
-            />
-          </InputIcon>
-        </AuthLabel>
-        {errors.password && touched.password ? (
-            <div>{errors.password}</div>
-          ) : null}
-         <AuthLabel>
-          <Input 
-          onChange={handleChange}
-          value={values.confirmPassword}
-           placeholder="Confirm password"
-           name="confirmPassword"
-           type="password"
-          ></Input>
-          <InputIcon width="16" height="21">
-            <path
-              d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
-              fill="#E0E0E0"
-            />
-          </InputIcon>
-        </AuthLabel>
+        <Formik
+          initialValues={{
+            firstName: '',
+            password: '',
+            email: '',
+            confirmPassword: '',
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={values => {
+            dispatch(
+              createNewUser({
+                email: values.email,
+                password: values.password,
+                username: values.firstName,
+              })
+            );
+          }}
+        >
+          {({ errors, touched, values, handleChange }) => (
+            <Form>
+              <AuthLabel>
+                <Input
+                  onChange={handleChange}
+                  value={values.email}
+                  placeholder="E-mail"
+                  name="email"
+                ></Input>
+                <InputIcon width="21" height="16">
+                  <path
+                    d="M18 0H2C.9 0 .00999999.9.00999999 2L0 14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V2l8 5 8-5v2Z"
+                    fill="#E0E0E0"
+                  />
+                </InputIcon>
+                {errors.email && touched.email ? (
+                  <div>{errors.email}</div>
+                ) : null}
+              </AuthLabel>
+              <AuthLabel>
+                <Input
+                  onChange={handleChange}
+                  value={values.password}
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                ></Input>
+                <InputIcon width="16" height="21">
+                  <path
+                    d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
+                    fill="#E0E0E0"
+                  />
+                </InputIcon>
+              </AuthLabel>
+              {errors.password && touched.password ? (
+                <div>{errors.password}</div>
+              ) : null}
+              <AuthLabel>
+                <Input
+                  onChange={handleChange}
+                  value={values.confirmPassword}
+                  placeholder="Confirm password"
+                  name="confirmPassword"
+                  type="password"
+                ></Input>
+                <InputIcon width="16" height="21">
+                  <path
+                    d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
+                    fill="#E0E0E0"
+                  />
+                </InputIcon>
+               
+              </AuthLabel>
+              <ProgressSwitch value={values.password.length} />
 
         {errors.confirmPassword && touched.confirmPassword ? (
             <div>{errors.confirmPassword}</div>
