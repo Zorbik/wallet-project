@@ -1,17 +1,25 @@
 {
   "files": {
     "main.css": "/wallet-project/static/css/main.8c97574b.css",
-    "main.js": "/wallet-project/static/js/main.94b4fe04.js",
-    "static/js/544.6eb5142d.chunk.js": "/wallet-project/static/js/544.6eb5142d.chunk.js",
-    "static/js/894.712abef6.chunk.js": "/wallet-project/static/js/894.712abef6.chunk.js",
+    "main.js": "/wallet-project/static/js/main.aa0600b4.js",
+    "static/js/544.36a3caa2.chunk.js": "/wallet-project/static/js/544.36a3caa2.chunk.js",
+    "static/js/894.fb2f07eb.chunk.js": "/wallet-project/static/js/894.fb2f07eb.chunk.js",
+    "static/js/940.3e7782c4.chunk.js": "/wallet-project/static/js/940.3e7782c4.chunk.js",
+    "static/js/902.44f306cc.chunk.js": "/wallet-project/static/js/902.44f306cc.chunk.js",
+    "static/js/694.66a01513.chunk.js": "/wallet-project/static/js/694.66a01513.chunk.js",
+    "static/media/Frame.svg": "/wallet-project/static/media/Frame.524a2ae994a99e78aba6fbc519f278a2.svg",
+    "static/media/Group.svg": "/wallet-project/static/media/Group.6482bf58b8331cd41b4782a94b40f71b.svg",
     "index.html": "/wallet-project/index.html",
     "main.8c97574b.css.map": "/wallet-project/static/css/main.8c97574b.css.map",
-    "main.94b4fe04.js.map": "/wallet-project/static/js/main.94b4fe04.js.map",
-    "544.6eb5142d.chunk.js.map": "/wallet-project/static/js/544.6eb5142d.chunk.js.map",
-    "894.712abef6.chunk.js.map": "/wallet-project/static/js/894.712abef6.chunk.js.map"
+    "main.aa0600b4.js.map": "/wallet-project/static/js/main.aa0600b4.js.map",
+    "544.36a3caa2.chunk.js.map": "/wallet-project/static/js/544.36a3caa2.chunk.js.map",
+    "894.fb2f07eb.chunk.js.map": "/wallet-project/static/js/894.fb2f07eb.chunk.js.map",
+    "940.3e7782c4.chunk.js.map": "/wallet-project/static/js/940.3e7782c4.chunk.js.map",
+    "902.44f306cc.chunk.js.map": "/wallet-project/static/js/902.44f306cc.chunk.js.map",
+    "694.66a01513.chunk.js.map": "/wallet-project/static/js/694.66a01513.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8c97574b.css",
-    "static/js/main.94b4fe04.js"
+    "static/js/main.aa0600b4.js"
   ]
 }
