@@ -45,7 +45,7 @@ export const RowTr = styled.tr`
 `;
 
 export const Row = styled.td`
-  text-align: right;
+  text-align: center;
 `;
 
 export const RowAmount = styled.td`
