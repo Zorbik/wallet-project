@@ -1,4 +1,3 @@
-
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -15,11 +14,8 @@ import {
   RegBtn,
 } from './RegistrationFormStyled';
 
-
-
 export default function RegisterForm() {
   const dispatch = useDispatch();
-  
 
   const SignupSchema = Yup.object({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -27,18 +23,14 @@ export default function RegisterForm() {
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
       .required('Required'),
-      confirmPassword: Yup
-      .string('Please, confirm your password')
-      .oneOf(
-        [Yup.ref('password')],
-        'Entered password doesn`t match the previous one'
-      ),
+    confirmPassword: Yup.string('Please, confirm your password').oneOf(
+      [Yup.ref('password')],
+      'Entered password doesn`t match the previous one'
+    ),
     firstName: Yup.string()
-    .min(1, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Required'),
-     
-   
+      .min(1, 'Too Short!')
+      .max(12, 'Too Long!')
+      .required('Required'),
   });
 
   return (
@@ -140,37 +132,37 @@ export default function RegisterForm() {
                     fill="#E0E0E0"
                   />
                 </InputIcon>
-               
               </AuthLabel>
               <ProgressSwitch value={values.password.length} />
 
-        {errors.confirmPassword && touched.confirmPassword ? (
-            <div>{errors.confirmPassword}</div>
-          ) : null}
-         <AuthLabel>
-          <Input 
-           onChange={handleChange}
-           value={values.firstName}
-           placeholder="First name"
-           name="firstName"
-          ></Input>
-          <InputIcon width="18" height="18">
-            <path
-              d="M0 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2H2C.89 0 0 .9 0 2Zm12 4c0 1.66-1.34 3-3 3S6 7.66 6 6s1.34-3 3-3 3 1.34 3 3Zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H3v-1Z"
-              fill="#E0E0E0"
-            />
-          </InputIcon>
-        </AuthLabel>
-        {errors.firstName && touched.firstName ? (
-            <div>{errors.firstName}</div>
-          ) : null}
-        <div>
-           <RegBtn type="submit" >REGISTER</RegBtn>
-           <LogBtn>LOG IN</LogBtn>
-         </div>
-        </Form>
-      )}
-    </Formik>
-  </div>
+              {errors.confirmPassword && touched.confirmPassword ? (
+                <div>{errors.confirmPassword}</div>
+              ) : null}
+              <AuthLabel>
+                <Input
+                  onChange={handleChange}
+                  value={values.firstName}
+                  placeholder="First name"
+                  name="firstName"
+                ></Input>
+                <InputIcon width="18" height="18">
+                  <path
+                    d="M0 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2H2C.89 0 0 .9 0 2Zm12 4c0 1.66-1.34 3-3 3S6 7.66 6 6s1.34-3 3-3 3 1.34 3 3Zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H3v-1Z"
+                    fill="#E0E0E0"
+                  />
+                </InputIcon>
+              </AuthLabel>
+              {errors.firstName && touched.firstName ? (
+                <div>{errors.firstName}</div>
+              ) : null}
+              <div>
+                <RegBtn type="submit">REGISTER</RegBtn>
+                <LogBtn to="/login">LOG IN</LogBtn>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </Box>
-  )}
+  );
+}
