@@ -22,13 +22,11 @@ export default function RegisterForm() {
     password: Yup.string()
       .min(6, 'Too Short!')
       .max(12, 'Too Long!')
-      .required('Required')
-      confirmPassword: Yup
-      .string('Please, confirm your password')
-      .oneOf(
-        [Yup.ref('password')],
-        'Entered password doesn`t match the previous one'
-      ),
+      .required('Required'),
+    confirmPassword: Yup.string('Please, confirm your password').oneOf(
+      [Yup.ref('password')],
+      'Entered password doesn`t match the previous one'
+    ),
     firstName: Yup.string()
       .min(1, 'Too Short!')
       .max(12, 'Too Long!')
@@ -134,7 +132,6 @@ export default function RegisterForm() {
                     fill="#E0E0E0"
                   />
                 </InputIcon>
-               
               </AuthLabel>
               <ProgressSwitch value={values.password.length} />
 
