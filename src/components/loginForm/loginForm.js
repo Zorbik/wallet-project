@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+
 import { useDispatch } from 'react-redux';
 import {
   Logo,
@@ -84,8 +85,8 @@ export default function LoginForm() {
                   fill="#E0E0E0"
                 />
               </InputIcon>
-              {errors.email && touched.email ? <div>{errors.email}</div> : null}
             </AuthLabel>
+            {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
             <AuthLabel>
               <Input
@@ -108,7 +109,7 @@ export default function LoginForm() {
 
             <LogBtn type="submit">LOG IN</LogBtn>
 
-            <RegBtn>REGISTER</RegBtn>
+            <RegBtn to="/registration">REGISTER</RegBtn>
           </Form>
         )}
       </Formik>
