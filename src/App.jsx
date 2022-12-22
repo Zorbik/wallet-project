@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { PrivateRoute } from './components/navigation/PrivateRoute';
+import { PublicRoute } from './components/navigation/PublicRoute';
 import { Home, LoginPage, RegisterPage, Statistic } from './pages';
 // import { getCurrentUser } from './redux/userAuthOperations';
 
@@ -30,8 +31,22 @@ function App() {
             <Route index element={<Home />} />
             <Route path="statistic" element={<Statistic />} />
           </Route>
-          <Route path="login" element={<LoginPage />} />
-          <Route path="registration" element={<RegisterPage />} />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="registration"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </>
