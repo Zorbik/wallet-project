@@ -34,7 +34,7 @@ export const TableHeadTr = styled.tr`
   line-height: 27px;
   border-radius: 30px;
   height: 58px;
-  background-color: var(--primary-background-color);
+  background-color: var(--primary-bg-color);
 
   @media screen and (max-width: 767px) {
     width: 100%;
