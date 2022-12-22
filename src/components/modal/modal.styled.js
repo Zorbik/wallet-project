@@ -11,7 +11,7 @@ export const ModalBox = styled.div`
   top: 60px;
   background-color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     max-height: 600px;
     width: 100%;
     padding: 20px 0px 268px 0px;
@@ -130,7 +130,7 @@ export const VolumeTransactionWrapper = styled.div`
 
 export const FormInputSum = styled.label`
   @media screen and (max-width: 768px) {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -165,49 +165,16 @@ export const SumInput = styled.input`
     }
   }
 `;
-
 export const SelectDateWrapper = styled.div`
   width: 100%;
   margin-bottom: 40px;
-  max-width: 188px;
+  max-width: 288px;
   height: 30px;
   @media screen and (min-width: 768px) {
     width: 200px;
   }
 `;
 
-export const TimeInput = styled(Datetime)`
-  width: 100%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
-`;
-
-export const CommentInput = styled.input`
-  display: block;
-  position: relative;
-  font-family: 'Circe';
-  width: 396px;
-  height: 32px;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  padding-bottom: 5px;
-  outline: none;
-  border: none;
-  resize: none;
-  border-bottom: 1px solid #e0e0e0;
-  color: black;
-  &::placeholder {
-    color: #bdbdbd;
-    margin: 0 0 5px 20px;
-  }
-  @media screen and (max-width: 768px) {
-    height: 84px;
-    max-width: 260px;
-    margin-right: 0;
-  }
-`;
 
 export const DateWrapper = styled.label`
   display: flex;
@@ -242,13 +209,50 @@ export const DateIcon = styled.svg`
   height: 24px;
   fill: black;
   right: 0;
-  pointer-events: none;
+  cursor: pointer;
   vertical-align: baseline;
 
   @media screen and (max-width: 768px) {
     top: 19px;
   }
 `;
+
+export const TimeInput = styled(Datetime)`
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+`;
+
+export const CommentInput = styled.input`
+  display: block;
+  position: relative;
+  font-family: 'Circe';
+  width: 396px;
+  height: 32px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  padding-bottom: 5px;
+  outline: none;
+  border: none;
+  resize: none;
+  border-bottom: 1px solid #e0e0e0;
+  color: black;
+  &::placeholder {
+    color: #bdbdbd;
+    margin: 0 0 5px 20px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 84px;
+    max-width: 260px;
+    margin-right: 0;
+  }
+`;
+
+
 
 export const SelectCategoryWrapper = styled.div`
   position: relative;

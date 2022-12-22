@@ -5,19 +5,26 @@
 // import { Contacts, Home, Login, NotFoundPage, Registration } from './pages';
 // import { getCurrentUser } from './redux/userAuthOperations';
 
-import LoginPage from "./pages/loginPage/loginPage";
-import RegistrationPage from "./pages/registrationPage/registrationPage";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ModalTransactions } from './components/modal/modal';
+import LoginPage from './pages/loginPage/loginPage';
+import RegistrationPage from './pages/registrationPage/registrationPage';
+import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
 function App() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { token } = useSelector(state => state.userData);
 
-  //   useEffect(() => {
-  //     dispatch(getCurrentUser());
-  //   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
       <LoginPage />
+      {/* {token && <ModalTransactions />} */}
       {/* <Suspense fallback={false}>
         <Routes>
           <Route path="/" element={<Layout />}>

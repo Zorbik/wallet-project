@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import Select from 'react-select';
 import moment from 'moment';
-import Modal from './modalOverlay';
+import Modal from './backdrop';
+import { fetchCategories } from '../../redux/categoriesTransactions/categoriesOperations';
+import { addTransaction } from '../../redux/transactions/transactionsOperations';
+
 
 import {
   CloseAddModal,
@@ -31,19 +33,19 @@ import {
 } from './modal.styled';
 
 export const ModalTransactions = ({ onClose }) => {
-  // const dispatch = useDispatch();
-  // const expenseCategories = useSelector();
+  const dispatch = useDispatch();
+  const { categories } = useSelector(state => state.categoriesData);
+  console.log(categories);
 
-  // useEffect(() => {
-  //   dispatch(());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
-  // const categories = expenseCategories.items.map(e => {
-  //   return {
-  //  label: ,
-  //     value: ,
-  //
-  // });
+  const expenseCategories = categories
+    .filter(category => category.type === 'EXPENSE')
+    .map(category => {
+      return { value: category.name, label: category.name };
+    });
 
   const [selectedDate, setSelectedDate] = useState(
     moment().format('DD.MM.YYYY')
@@ -53,7 +55,6 @@ export const ModalTransactions = ({ onClose }) => {
     setSelectedDate(moment(e._d).format('DD.MM.YYYY'));
   };
 
-  
   const [initialState, setState] = useState({
     date: selectedDate,
     type: false,
@@ -62,7 +63,7 @@ export const ModalTransactions = ({ onClose }) => {
     sum: '',
     checked: true,
   });
-  const {date, category, comment, sum, checked  } = initialState;
+  const { category, comment, sum, checked } = initialState;
 
   useEffect(() => {
     setState(items => ({
@@ -95,36 +96,47 @@ export const ModalTransactions = ({ onClose }) => {
     }));
   };
 
-  // const handleSubmit = useCallback(
-  //   e => {
-  //     e.preventDefault();
-  //     (async function () {
-  //       const userSum = Number(sum).toFixed(2);
-  //       const res = await dispatch();
-  //       postTransaction({
-  //         date: selectedDate,
-  //         sum: Number(userSum),
-  //         comment: comment || 'nothing to explain',
-  //         type: !checked,
-  //         category: category || 'Income',
-  //       })
-  //       console.log(res);
-  //     })();
-  //     onClose();
-  //   },
-  //   [onClose, sum, dispatch, selectedDate, comment, checked, category]
-  // );
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault();
+      (async function () {
+        const userSum = Number(sum).toFixed(2);
+        const res = await dispatch(
+          addTransaction(
+            //             {
+            //   "transactionDate": "string",
+            //   "type": "INCOME",
+            //   "categoryId": "string",
+            //   "comment": "string",
+            //   "amount": 0
+            // }
+
+            {
+              transactionDate: selectedDate,
+              amount: Number(userSum),
+              comment: comment || 'nothing to explain',
+              type: 'EXPENSE',
+              categoryId: category || 'Income',
+            }
+          )
+        );
+        console.log(res);
+      })();
+      onClose();
+    },
+    [onClose, sum, dispatch, selectedDate, comment, category]
+  );
 
   return (
     <Modal onClose={onClose}>
       <CloseAddModal type="button" onClick={onClose}>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M1 1L17 17" stroke="black" />
-          <path d="M1 17L17 0.999999" stroke="black" />
-        </svg>
+          <path d="M1 17L17 0.999999" stroke="black" /> 
+        </svg> 
       </CloseAddModal>
       <ModalTitle>Add transaction</ModalTitle>
-      <AddTransactionForm onSubmit={() => {}}>
+      <AddTransactionForm onSubmit={handleSubmit}>
         <SwitchWrapper as="div">
           <CheckBox className={`${!checked && 'active-income'} `}>
             Income
@@ -177,7 +189,7 @@ export const ModalTransactions = ({ onClose }) => {
               onChange={onChangeSelect}
               placeholder="Select a category"
               styles={ContextMenuStyles}
-              // options={categories}
+              options={expenseCategories}
               required
             />
             <ContextMenuIcon
@@ -195,9 +207,8 @@ export const ModalTransactions = ({ onClose }) => {
         <VolumeTransactionWrapper>
           <FormInputSum>
             <SumInput
-              as="input"
               name="sum"
-              // value={sum}
+              value={sum}
               required
               type="number"
               placeholder="0.00"
@@ -205,8 +216,8 @@ export const ModalTransactions = ({ onClose }) => {
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]+$"
-              // error={sum === '-' || sum === '--'}
-              title="here will be title"
+              error={sum === '-' || sum === '--'}
+              title="input only positive numbers"
             ></SumInput>
           </FormInputSum>
 
@@ -239,10 +250,10 @@ export const ModalTransactions = ({ onClose }) => {
             name="comment"
             type="text"
             onChange={() => {}}
-            // value={comment}
+            value={comment}
             placeholder="Comment"
             autoComplete="off"
-            maxLength="500"
+            maxLength="300"
             // resize= "none"
             // minRows={1}
             // maxRows={3}

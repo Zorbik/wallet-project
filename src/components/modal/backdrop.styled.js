@@ -20,11 +20,10 @@ export const ModalBox = styled.div`
   @media screen and (max-width: 768px) {
     max-height: 600px;
     width: 100%;
-    /* padding: 20px 10px 268px 10px; */
     padding: 20px 0px 268px 0px;
   }
   @media screen and (min-width: 768px) {
-    max-height: 508px;
+    max-height: 603px;
     min-width: 500px;
     top: 50%;
     left: 50%;
