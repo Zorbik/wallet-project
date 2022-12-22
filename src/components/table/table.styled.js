@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Table = styled.table`
   width: 704px;
-  height: 306px;
+  max-height: 531px;
   border-collapse: collapse;
   overflow: auto;
 `;
@@ -28,7 +28,7 @@ export const Header = styled.th`
   padding-bottom: 16px;
 `;
 
-export const StrTr = styled.tr`
+export const RowTr = styled.tr`
   font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
@@ -58,6 +58,19 @@ export const RowAmount = styled.td`
   color: ${props => (props.type === 'INCOME' ? '#24CCA7' : '#ff6596')};
 `;
 export const ButtonStyle = styled.button`
+  //   margin: 0;
+  //   border: 0;
+  //   padding: 0;
+  //   background: hsl(216, 100, 50);
+  //   border-radius: 50%;
+  //   width: 80px;
+  //   height: 80px;
+  //   display: flex;
+  //   flex-flow: column nowrap;
+  //   justify-content: center;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   transition: all 150ms;
   padding: 18px 16px;
   border-radius: 5px;
   background: #4676d7;
@@ -79,4 +92,7 @@ export const ButtonStyle = styled.button`
   &:hover {
     background-color: #3f51b5;
   }
+`;
+export const IconStyle = styled.span`
+  display: block;
 `;

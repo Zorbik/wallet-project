@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../redux/categoriesTransactions/categoriesOperations';
@@ -8,7 +9,7 @@ import {
 import {
   Table,
   HeaderTr,
-  StrTr,
+  RowTr,
   Row,
   Header,
   RowAmount,
@@ -28,10 +29,12 @@ const TableTransactions = () => {
   const onDeleteTransaction = transactionId => {
     dispatch(deleteTransaction(transactionId));
   };
-
+  const onFormatDate = date => {
+    return moment().format('DD.MM.YY');
+  };
   const showCategoryName = categoryId => {
     const foundCategory = categories.filter(el => el.id === categoryId);
-    return foundCategory[0].name;
+    return foundCategory[0]?.name;
   };
   return (
     <Table>
@@ -49,8 +52,8 @@ const TableTransactions = () => {
       <tbody>
         {transactions.map(trans => {
           return (
-            <StrTr key={trans.id}>
-              <Row>{trans.transactionDate}</Row>
+            <RowTr key={trans.id}>
+              <Row>{onFormatDate(trans.transactionDate)}</Row>
               <Row>{trans.type === 'INCOME' ? '+' : '-'}</Row>
               <Row>{showCategoryName(trans.categoryId)}</Row>
               <Row>{trans.comment}</Row>
@@ -65,7 +68,7 @@ const TableTransactions = () => {
                   Delete
                 </ButtonStyle>
               </Row>
-            </StrTr>
+            </RowTr>
           );
         })}
       </tbody>
