@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 //import { ReactComponent as MoneyIcon } from 'images/icons/DollarIcon.svg';
 
 export const AppBar = () => {
-  const { balanceAfter } = useSelector(state => state.transactionsData);
   const { balance } = useSelector(state => state.userData.user);
 
   return (
@@ -25,7 +24,7 @@ export const AppBar = () => {
       </NavMenu>
       <TotalBalanceWrapper>
         <Title>Your balance</Title>
-        <Balance balance={balanceAfter ?? balance} />
+        <Balance balance={balance} />
       </TotalBalanceWrapper>
     </Box>
   );

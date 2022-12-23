@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   transactions: [],
-  balanceAfter: null,
   isLoading: false,
   error: null,
 };
@@ -25,7 +24,6 @@ export const transactionsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.transactions = [...state.transactions, payload];
-      state.balanceAfter = payload.balanceAfter;
     });
     builder.addCase(addTransaction.rejected, (state, { payload }) => {
       state.isLoading = false;
@@ -48,12 +46,11 @@ export const transactionsSlice = createSlice({
       state.isLoading = true;
       state.error = '';
     });
-    builder.addCase(deleteTransaction.fulfilled, (state, action) => {
+    builder.addCase(deleteTransaction.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.error = null;
-      const transactionId = action.payload;
       state.transactions = state.transactions.filter(
-        transaction => transaction.id !== transactionId
+        transaction => transaction.id !== payload
       );
     });
     builder.addCase(deleteTransaction.rejected, (state, action) => {

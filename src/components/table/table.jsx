@@ -6,6 +6,7 @@ import {
   deleteTransaction,
   getTransactions,
 } from '../../redux/transactions/transactionsOperations';
+import { getCurrentUser } from '../../redux/userAuth/userAuthOperations';
 import {
   Table,
   HeaderTr,
@@ -29,6 +30,7 @@ const TableTransactions = () => {
 
   const onDeleteTransaction = transactionId => {
     dispatch(deleteTransaction(transactionId));
+    dispatch(getCurrentUser());
   };
   const onFormatDate = date => {
     return moment().format('DD.MM.YY');
