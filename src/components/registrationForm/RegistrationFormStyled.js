@@ -4,6 +4,9 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 533px;
   height: 616px;
+  background-color: #ffffff;
+  padding: 40px 65px 60px;
+  border-radius: 20px;
 `;
 
 export const LogoSvg = styled.svg`
@@ -49,7 +52,9 @@ export const AuthLabel = styled.label`
 `;
 
 export const LogBtn = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 50px;
   margin-top: 10px;

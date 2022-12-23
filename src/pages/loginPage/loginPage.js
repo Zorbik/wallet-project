@@ -3,6 +3,8 @@ import {
   LoginPageStyled,
   LoginPageForm,
   LoginPageImg,
+  LoginImg,
+  LoginPagetitle,
 } from './loginPageStyled';
 import Frame from '../../images/Frame.svg';
 import { Container } from '../../components/appBar/AppBar.styled';
@@ -12,8 +14,8 @@ const LoginPage = () => {
     <Container>
       <LoginPageStyled>
         <LoginPageImg>
-          <img src={Frame} alt="" width="436" />
-          <h1> Finance App </h1>
+          <LoginImg src={Frame} alt="" />
+          <LoginPagetitle> Finance App </LoginPagetitle>
         </LoginPageImg>
         <LoginPageForm>
           <LoginForm />

@@ -4,12 +4,13 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 533px;
   height: 468px;
-  background-color: white;
+  background-color: #ffffff;
   padding: 40px 65px 60px;
   border-radius: 20px;
 `;
 export const LogoSvg = styled.svg`
   margin-right: 20px;
+  fill: current;
 `;
 export const Logo = styled.h1`
   display: flex;
@@ -82,7 +83,9 @@ export const LogBtn = styled.button`
 `;
 
 export const RegBtn = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 50px;
   margin-top: 10px;
@@ -95,18 +98,18 @@ export const RegBtn = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.1em;
-  background-color: #ffffff;
+  background-color: #fffff;
   color: #4a56e2;
   border: 1px solid #4a56e2;
 
   :hover,
   :focus {
-      color: #ffffff;
-      background-color: #4a56e2;
-      border: 1px solid #4a56e2;
-      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    color: #ffffff;
+    background-color: #4a56e2;
+    border: 1px solid #4a56e2;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
 
 export const Form = styled.form`
