@@ -83,7 +83,7 @@ export default function LoginForm(){
 
             <LogBtn  type="submit">LOG IN</LogBtn> 
 
-            <RegBtn >REGISTER</RegBtn>
+            <RegBtn to="/registration">REGISTER</RegBtn>
            
           </Form>
           )}

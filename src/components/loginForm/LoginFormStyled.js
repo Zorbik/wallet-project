@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Box = styled.div`
@@ -6,14 +7,30 @@ export const Box = styled.div`
   background-color: white;
   padding: 40px 65px 60px;
   border-radius: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 320px;
+    height: 568px;
+    padding: 107px 20px;
+    border-radius: 0px;
+    }
 `;
 export const LogoSvg = styled.svg`
   margin-right: 20px;
+  fill: current;
+  @media screen and (max-width: 768px) {
+    margin-right: 16px;
+    width: 30px;
+    height: 30px;
+    }
 `;
 export const Logo = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 60px;
+  }
 `;
 
 export const Input = styled.input`
@@ -34,24 +51,29 @@ export const Input = styled.input`
   ::placeholder {
     color: #bdbdbd;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 280px;
+    height: 32px;
+  }
 `;
 
 export const InputIcon = styled.svg`
   position: absolute;
   left: 10px;
-  bottom: 3px;
+  top: 25px;
 `;
 
 export const AuthLabel = styled.label`
   position: relative;
   width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
+  
 `;
 
 export const LogBtn = styled.button`
   display: block;
-  width: 280px;
+  width: 300px;
   height: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -78,11 +100,16 @@ export const LogBtn = styled.button`
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
       color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+  @media screen and (max-width: 768px) {
+    width: 280px;
+  }
 `;
 
-export const RegBtn = styled.button`
-  display: block;
-  width: 280px;
+export const RegBtn = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
   height: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -100,12 +127,15 @@ export const RegBtn = styled.button`
 
   :hover,
   :focus {
-      color: #ffffff;
-      background-color: #4a56e2;
-      border: 1px solid #4a56e2;
-      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    color: #ffffff;
+    background-color: #4a56e2;
+    border: 1px solid #4a56e2;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media screen and (max-width: 768px) {
+    width: 280px;
+  }
 `;
 
 export const Form = styled.form`

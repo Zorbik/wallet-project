@@ -22,10 +22,10 @@ export default function RegisterForm() {
   
 
   const SignupSchema = Yup.object({
-    email: Yup.string().email('Invalid email').required('Required'),
+    email: Yup.string().email('Invalid email, please try another').required('Required'),
     password: Yup.string()
-      .min(6, 'Too Short!')
-      .max(12, 'Too Long!')
+      .min(6, 'Too Short! Min length 6')
+      .max(12, 'Too Long! Max lenght 12')
       .required('Required'),
       confirmPassword: Yup
       .string('Please, confirm your password')
@@ -34,11 +34,9 @@ export default function RegisterForm() {
         'Entered password doesn`t match the previous one'
       ),
     firstName: Yup.string()
-    .min(1, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Required'),
-     
-   
+      .min(1, 'Too Short! Min length 1')
+      .max(12, 'Too Long! Max lenght 12')
+      .required('Required'),
   });
 
   return (
