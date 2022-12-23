@@ -65,7 +65,7 @@ export const ModalTransactions = ({ onClose }) => {
     sum: '',
     checked: true,
   });
-  const { comment, sum, checked, date } = initialState;
+  const { comment, sum, checked } = initialState;
 
   useEffect(() => {
     setInitialState(items => ({
