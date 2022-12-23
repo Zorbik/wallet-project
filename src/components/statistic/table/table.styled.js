@@ -57,10 +57,10 @@ export const Total = styled.div`
   font-size: 16px;
   line-height: 24px;
 `;
-export const TotalExpenses = styled.span`
+export const ExpenseSummary = styled.span`
   color: #ff6596;
 `;
-export const TotalIncome = styled.span`
+export const IncomeSummary = styled.span`
   color: #24cca7;
 `;
 export const TableBody = styled.tbody``;

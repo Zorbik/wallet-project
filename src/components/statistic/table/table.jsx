@@ -8,19 +8,19 @@ import {
     TableBody,
     BodyTr,
     BodyText,
-    TotalExpenses,
-    TotalIncome,
+    ExpenseSummary,
+    IncomeSummary,
   } from './table.styled';
   
   export function Table({ statistics }) {
     if (!statistics) {
       return null;
     }
-    const { totalExpenses, totalIncome, totalCategories } = statistics;
+    const { expenseSummary, incomeSummary, categoriesSummary } = statistics;
   
     return (
       <>
-        {!totalExpenses && !totalIncome ? null : (
+        {!expenseSummary && !incomeSummary ? null : (
           <Tabl>
             <TableHead>
               <TableHeadTr>
@@ -29,7 +29,7 @@ import {
               </TableHeadTr>
             </TableHead>
             <TableBody>
-              {totalCategories.map(category => (
+              {categoriesSummary.map(category => (
                 <BodyTr key={category.id}>
                   <Tabrow>
                     <p
@@ -53,10 +53,10 @@ import {
         )}
         <Total>
           Expenses:
-          <TotalExpenses>{totalExpenses}</TotalExpenses>
+          <ExpenseSummary>{expenseSummary}</ExpenseSummary>
         </Total>
         <Total>
-          Income: <TotalIncome>{totalIncome}</TotalIncome>
+          Income: <IncomeSummary>{incomeSummary}</IncomeSummary>
         </Total>
       </>
     );
