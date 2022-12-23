@@ -5,6 +5,7 @@ import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg';
 import { ReactComponent as DiagramIcon } from '../../icons/statIcon.svg';
 import Balance from '../balance/balance';
 import { useSelector } from 'react-redux';
+import { Currency } from '../currency/currency';
 //import { ReactComponent as MoneyIcon } from 'images/icons/DollarIcon.svg';
 
 export const AppBar = () => {
@@ -12,20 +13,23 @@ export const AppBar = () => {
 
   return (
     <Box>
-      <NavMenu>
-        <Link to="/">
-          <HomeIcon />
-          <span>Home</span>
-        </Link>
-        <Link to="statistic">
-          <DiagramIcon />
-          <span>Statistics</span>
-        </Link>
-      </NavMenu>
-      <TotalBalanceWrapper>
-        <Title>Your balance</Title>
-        <Balance balance={balance} />
-      </TotalBalanceWrapper>
+      <Box display="flex" flexDirection="column">
+        <NavMenu>
+          <Link to="/">
+            <HomeIcon />
+            <span>Home</span>
+          </Link>
+          <Link to="statistic">
+            <DiagramIcon />
+            <span>Statistics</span>
+          </Link>
+        </NavMenu>
+        <TotalBalanceWrapper>
+          <Title>Your balance</Title>
+          <Balance balance={balance} />
+        </TotalBalanceWrapper>
+      </Box>
+      <Currency />
     </Box>
   );
 };

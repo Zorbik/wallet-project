@@ -32,7 +32,7 @@ export const NavMenu = styled.div`
 export const LayoutStyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
   }
 `;
@@ -60,6 +60,8 @@ export const TotalBalanceWrapper = styled.div`
   border-radius: 30px;
   padding: 8px 32px;
   background-color: silver;
+  margin-left: auto;
+  margin-right: auto;
   @media (min-width: 768px) {
     width: 336px;
     padding: 8px 40px;

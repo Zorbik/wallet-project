@@ -33,6 +33,20 @@ const TableTransactions = () => {
   const { categories } = useSelector(state => state.categoriesData);
   const isWide = useMedia('(max-width:768px)');
 
+  const sortedTransactions = transactions => {
+    return [...transactions].sort(function (a, b) {
+      if (a.transactionDate < b.transactionDate) {
+        return 1;
+      }
+      if (a.transactionDate > b.transactionDate) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
+  const sortedTransactionsList = sortedTransactions(transactions);
+
   useEffect(() => {
     dispatch(getTransactions());
 
@@ -55,7 +69,7 @@ const TableTransactions = () => {
     <>
       {isWide ? (
         <>
-          {transactions.map(trans => {
+          {sortedTransactionsList.map(trans => {
             const color = trans.type === 'INCOME' ? '#24CCA7' : '#FF6596';
 
             return (
@@ -108,7 +122,7 @@ const TableTransactions = () => {
             </HeaderTr>
           </Thead>
           <tbody>
-            {transactions.map(trans => {
+            {sortedTransactionsList.map(trans => {
               return (
                 <RowTr key={trans.id}>
                   <td>{onFormatDate(trans.transactionDate)}</td>
@@ -122,7 +136,7 @@ const TableTransactions = () => {
                   <td>
                     <ButtonStyle
                       type="button"
-                  onClick={() => {
+                      onClick={() => {
                         onDeleteTransaction(trans.id);
                       }}
                     >

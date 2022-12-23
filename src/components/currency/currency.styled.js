@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import VectorMob from '../../images/currency/Vector7_mob.pn';
+import VectorMob from '../../images/currency/Vector7_mob.png';
 import VectorDesktop from '../../images/currency/Vector7_desc.png';
 import VectorTable from '../../images/currency/Vector7_tabl.png';
 
@@ -15,6 +15,7 @@ export const CurrencyContainer = styled.div`
   border-radius: 30px;
   background-color: #4a56e2;
   position: relative;
+  margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: 320px) {
@@ -22,6 +23,7 @@ export const CurrencyContainer = styled.div`
     height: 174px;
   }
   @media screen and (min-width: 768px) {
+    margin: 32px;
     width: 336px;
     height: 182px;
   }
