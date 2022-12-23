@@ -4,12 +4,9 @@ import { NavMenu, Link, TotalBalanceWrapper, Title } from './AppBar.styled';
 import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg';
 import { ReactComponent as DiagramIcon } from '../../icons/statIcon.svg';
 import Balance from '../balance/balance';
-import { useSelector } from 'react-redux';
 //import { ReactComponent as MoneyIcon } from 'images/icons/DollarIcon.svg';
 
 export const AppBar = () => {
-  const { balance } = useSelector(state => state.userData.user);
-
   return (
     <Box>
       <NavMenu>
@@ -24,7 +21,7 @@ export const AppBar = () => {
       </NavMenu>
       <TotalBalanceWrapper>
         <Title>Your balance</Title>
-        <Balance balance={balance} />
+        <Balance />
       </TotalBalanceWrapper>
     </Box>
   );
