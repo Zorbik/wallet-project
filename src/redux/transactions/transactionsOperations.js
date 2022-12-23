@@ -14,9 +14,9 @@ export const addTransaction = createAsyncThunk(
 
   async (transactionForm, thunkAPI) => {
     try {
-      const response = await axios.post('/transactions', transactionForm);
+      const { data } = await axios.post('/transactions', transactionForm);
 
-      return response.data;
+      return data;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data.message);
     }

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 533px;
   height: 468px;
-  background-color: white;
+  background-color: #ffffff;
   padding: 40px 65px 60px;
   border-radius: 20px;
 
@@ -18,6 +18,7 @@ export const Box = styled.div`
 export const LogoSvg = styled.svg`
   margin-right: 20px;
   fill: current;
+
   @media screen and (max-width: 768px) {
     margin-right: 16px;
     width: 30px;
@@ -121,7 +122,7 @@ export const RegBtn = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.1em;
-  background-color: #ffffff;
+  background-color: #fffff;
   color: #4a56e2;
   border: 1px solid #4a56e2;
 
@@ -133,6 +134,7 @@ export const RegBtn = styled(Link)`
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
       color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   @media screen and (max-width: 768px) {
     width: 280px;
   }

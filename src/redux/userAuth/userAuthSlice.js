@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
+import { addTransaction } from '../transactions/transactionsOperations';
 import {
   createNewUser,
   getCurrentUser,
@@ -66,5 +67,8 @@ export const userAuthSlice = createSlice({
         state.isLoggedIn = false;
         state.isPending = false;
       });
+    builder.addCase(addTransaction.fulfilled, (state, { payload }) => {
+      state.user.balance = payload.balanceAfter;
+    });
   },
 });

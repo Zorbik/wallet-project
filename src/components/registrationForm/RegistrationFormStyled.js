@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Box = styled.div`
   width: 533px;
@@ -15,6 +15,7 @@ export const Box = styled.div`
     padding: 32px 20px 26px 20px;
     border-radius: 0px;
     }
+
 `;
 
 export const LogoSvg = styled.svg`
@@ -61,13 +62,13 @@ export const Input = styled.input`
   }
 `;
 
-export const InputIcon = styled.svg `
+export const InputIcon = styled.svg`
   position: absolute;
   left: 10px;
   top: 25px;
 `;
 
-export const AuthLabel = styled.label `
+export const AuthLabel = styled.label`
   position: relative;
   width: 280px;
   display: block;
@@ -110,7 +111,7 @@ export const LogBtn = styled(Link)`
   }
 `;
 
-export const RegBtn = styled.button `
+export const RegBtn = styled.button`
   display: block;
   width: 300px;
   height: 50px;
@@ -145,27 +146,26 @@ export const RegBtn = styled.button `
 export const Form = styled.form `
 margin-left: 65px;
 margin-right: 65px;
-`
+`;
 
-export const AuthForm = styled.form `
-
-margin-top: 60px;
-margin-bottom: 62px;
-margin-right: auto;
-margin-left: auto;
-`
+export const AuthForm = styled.form`
+  margin-top: 60px;
+  margin-bottom: 62px;
+  margin-right: auto;
+  margin-left: auto;
+`;
 export const barContainer = styled.div`
-position: fixed;
-top: 0;
-left: 0;
-height: 25px;
-width: 100%;
-background-color: #dee4e6;
-z-index: 1;
-`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 100%;
+  background-color: #dee4e6;
+  z-index: 1;
+`;
 
-export const progressBar = styled.div `
-height: 100%;
-background-color: #084b15;
-width: 10%;
-`
+export const progressBar = styled.div`
+  height: 100%;
+  background-color: #084b15;
+  width: 10%;
+`;
