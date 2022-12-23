@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   transactions: [],
+  balanceAfter: null,
   isLoading: false,
   error: null,
 };
@@ -20,14 +21,15 @@ export const transactionsSlice = createSlice({
       state.isLoading = true;
       state.error = '';
     });
-    builder.addCase(addTransaction.fulfilled, (state, action) => {
+    builder.addCase(addTransaction.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.error = null;
-      state.transactions = [...state.transactions, action.payload];
+      state.transactions = [...state.transactions, payload];
+      state.balanceAfter = payload.balanceAfter;
     });
-    builder.addCase(addTransaction.rejected, (state, action) => {
+    builder.addCase(addTransaction.rejected, (state, { payload }) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.error = payload;
     });
     builder.addCase(getTransactions.pending, (state, action) => {
       state.isLoading = true;

@@ -9,7 +9,7 @@ export const Layout = () => {
   return (
     <Container display="flex" flexDirection="column">
       <Header></Header>
-      <Box display="flex" height="90vh">
+      <Box display="flex">
         <AppBar></AppBar>
         <Suspense fallback={null}>
           <Outlet />
