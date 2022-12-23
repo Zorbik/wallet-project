@@ -28,6 +28,14 @@ export const NavMenu = styled.div`
     margin-bottom: 28px;
   }
 `;
+
+export const LayoutStyledBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
 export const Link = styled(NavLink)`
   height: 18px;
   display: flex;

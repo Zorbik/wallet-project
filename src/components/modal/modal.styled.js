@@ -175,7 +175,6 @@ export const SelectDateWrapper = styled.div`
   }
 `;
 
-
 export const DateWrapper = styled.label`
   display: flex;
   position: relative;
@@ -252,8 +251,6 @@ export const CommentInput = styled.input`
     margin-right: 0;
   }
 `;
-
-
 
 export const SelectCategoryWrapper = styled.div`
   position: relative;
