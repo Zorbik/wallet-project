@@ -20,9 +20,13 @@ export const NavMenu = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 40px;
-  margin-bottom: 28px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   background-color: rgba(255, 255, 255, 0);
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 28px;
+  }
 `;
 export const Link = styled(NavLink)`
   height: 18px;
@@ -47,22 +51,23 @@ export const TotalBalanceWrapper = styled.div`
   height: 80px;
   border-radius: 30px;
   padding-top: 8px;
+  padding-left: 32px;
   background-color: silver;
   @media (min-width: 768px) {
     width: 336px;
-    margin-top: 28px;
+    padding-left: 40px;
   }
   @media (min-width: 1280px) {
     width: 395px;
   }
 `;
 export const Title = styled.p`
-  padding-left: 40px;
   font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
+  line-height: 1.5;
   text-transform: uppercase;
   color: #a6a6a6;
-  margin: 0 0 12px 0;
+  margin-bottom: 12px;
 `;
