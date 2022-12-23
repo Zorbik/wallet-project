@@ -50,12 +50,11 @@ export const TotalBalanceWrapper = styled.div`
   width: 280px;
   height: 80px;
   border-radius: 30px;
-  padding-top: 8px;
-  padding-left: 32px;
+  padding: 8px 32px;
   background-color: silver;
   @media (min-width: 768px) {
     width: 336px;
-    padding-left: 40px;
+    padding: 8px 40px;
   }
   @media (min-width: 1280px) {
     width: 395px;
