@@ -5,6 +5,8 @@ import {
   RegistrationPageImg,
   RegisterPageForm,
   RegistrationPageStyled,
+  PageTitle,
+  PageImg,
 } from './registrationPageStyled';
 
 const RegistrationPage = () => {
@@ -12,8 +14,8 @@ const RegistrationPage = () => {
     <Container>
       <RegistrationPageStyled>
         <RegistrationPageImg>
-          <img src={Group} alt="" width="436" />
-          <h1> Finance App </h1>
+          <PageImg src={Group} alt="" width="436" />
+          <PageTitle> Finance App </PageTitle>
         </RegistrationPageImg>
         <RegisterPageForm>
           <RegisterForm />

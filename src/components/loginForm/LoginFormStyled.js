@@ -4,12 +4,13 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 533px;
   height: 468px;
-  background-color: white;
+  background-color: #ffffff;
   padding: 40px 65px 60px;
   border-radius: 20px;
 `;
 export const LogoSvg = styled.svg`
   margin-right: 20px;
+  fill: current;
 `;
 export const Logo = styled.h1`
   display: flex;
@@ -95,7 +96,7 @@ export const RegBtn = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.1em;
-  background-color: #ffffff;
+  background-color: #fffff;
   color: #4a56e2;
   border: 1px solid #4a56e2;
 
