@@ -83,7 +83,9 @@ export const LogBtn = styled.button`
 `;
 
 export const RegBtn = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 50px;
   margin-top: 10px;
@@ -102,12 +104,12 @@ export const RegBtn = styled(Link)`
 
   :hover,
   :focus {
-      color: #ffffff;
-      background-color: #4a56e2;
-      border: 1px solid #4a56e2;
-      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    color: #ffffff;
+    background-color: #4a56e2;
+    border: 1px solid #4a56e2;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
 
 export const Form = styled.form`

@@ -52,7 +52,9 @@ export const AuthLabel = styled.label`
 `;
 
 export const LogBtn = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 50px;
   margin-top: 10px;
