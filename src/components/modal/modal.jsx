@@ -49,15 +49,15 @@ export const ModalTransactions = ({ onClose }) => {
     setSelectedDate(moment(e._d).format('DD.MM.YYYY'));
   };
 
-  const toIsoDate = date => {
-    const reversed = date.split('.').reverse().join('-');
+  const toIsoDate = selectedDate => {
+    const reversed = selectedDate.split('.').reverse().join('-');
 
     const newDate = new Date(reversed);
 
     return newDate.toISOString();
   };
 
-  const [initialState, setState] = useState({
+  const [initialState, setInitialState] = useState({
     date: selectedDate,
     type: false,
     category: '',
@@ -65,17 +65,17 @@ export const ModalTransactions = ({ onClose }) => {
     sum: '',
     checked: true,
   });
-  const { comment, sum, checked } = initialState;
+  const { comment, sum, checked, date } = initialState;
 
   useEffect(() => {
-    setState(items => ({
+    setInitialState(items => ({
       ...items,
     }));
     return;
   }, [checked]);
 
   const handleChangeCheckbox = switchCheck => {
-    setState(items => ({
+    setInitialState(items => ({
       ...items,
       checked: switchCheck,
       value: null,
@@ -84,18 +84,18 @@ export const ModalTransactions = ({ onClose }) => {
   };
 
   const onChangeSelect = e => {
-    setState(items => ({
+    setInitialState(items => ({
       ...items,
       category: e.value,
     }));
     setUserChoice(e);
   };
 
-  useEffect(() => {}, [userChoice]);
+  // useEffect(() => {}, [userChoice]);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setState(items => ({
+    setInitialState(items => ({
       ...items,
       [name]: value,
     }));
@@ -107,8 +107,10 @@ export const ModalTransactions = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    // setSelectedDate(selectedDate);
     const category = findCategory(userChoice.value) || categories[10];
     const userSum = Number(sum).toFixed(2);
+    console.log(selectedDate);
     dispatch(
       addTransaction({
         transactionDate: toIsoDate(selectedDate),

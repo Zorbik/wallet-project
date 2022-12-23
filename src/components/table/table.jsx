@@ -21,6 +21,7 @@ const TableTransactions = () => {
   const dispatch = useDispatch();
   const { transactions } = useSelector(state => state.transactionsData);
   const { categories } = useSelector(state => state.categoriesData);
+console.log("transactions:", transactions)
 
   useEffect(() => {
     dispatch(getTransactions());
@@ -33,7 +34,7 @@ const TableTransactions = () => {
     dispatch(getCurrentUser());
   };
   const onFormatDate = date => {
-    return moment().format('DD.MM.YY');
+    return moment(date).format('DD.MM.YY');
   };
   const showCategoryName = categoryId => {
     const foundCategory = categories.filter(el => el.id === categoryId);
