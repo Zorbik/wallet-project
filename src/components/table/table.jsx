@@ -11,10 +11,11 @@ import {
   Table,
   HeaderTr,
   RowTr,
-  Row,
   Header,
   RowAmount,
   ButtonStyle,
+  IconStyle,
+  Thead,
 } from './table.styled';
 
 const TableTransactions = () => {
@@ -42,7 +43,7 @@ console.log("transactions:", transactions)
   };
   return (
     <Table>
-      <thead>
+      <Thead>
         <HeaderTr>
           <Header>Date</Header>
           <Header>Type</Header>
@@ -52,26 +53,27 @@ console.log("transactions:", transactions)
           <Header>Balance</Header>
           <Header>Delete</Header>
         </HeaderTr>
-      </thead>
+      </Thead>
       <tbody>
         {transactions.map(trans => {
           return (
             <RowTr key={trans.id}>
-              <Row>{onFormatDate(trans.transactionDate)}</Row>
-              <Row>{trans.type === 'INCOME' ? '+' : '-'}</Row>
-              <Row>{showCategoryName(trans.categoryId)}</Row>
-              <Row>{trans.comment}</Row>
+              <td>{onFormatDate(trans.transactionDate)}</td>
+              <td>{trans.type === 'INCOME' ? '+' : '-'}</td>
+              <td>{showCategoryName(trans.categoryId)}</td>
+              <td>{trans.comment}</td>
               <RowAmount type={trans.type}>{trans.amount.toFixed(2)}</RowAmount>
-              <Row>{trans.balanceAfter.toFixed(2)}</Row>
-              <Row>
+              <td>{trans.balanceAfter.toFixed(2)}</td>
+              <td>
                 <ButtonStyle
+                  type="button"
                   onClick={() => {
                     onDeleteTransaction(trans.id);
                   }}
                 >
-                  Delete
+                  <IconStyle />
                 </ButtonStyle>
-              </Row>
+              </td>
             </RowTr>
           );
         })}
