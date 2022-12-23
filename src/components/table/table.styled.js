@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
+  display: block;
   width: 704px;
   margin-top: 20px;
   height: 531px;
@@ -22,13 +23,6 @@ export const Thead = styled.thead`
   border-width: 0;
   border-color: white;
 `;
-export const HeaderTr = styled.tr`
-  //   height: 58px;
-  //   border-radius: 30px;
-
-  font-weight: 700;
-  font-size: 18px;
-`;
 
 export const Header = styled.th`
   min-width: 75px;
@@ -37,15 +31,19 @@ export const Header = styled.th`
   padding-bottom: 16px;
 `;
 
-export const RowTr = styled.tr`
-  font-weight: 400;
-  font-size: 16px;
-  border-bottom: 1px solid #dcdcdf;
-  :not(:last-child) {
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+export const HeaderTr = styled.tr`
+  //   height: 58px;
+  //   border-radius: 30px;
+
+  font-weight: 700;
+  font-size: 18px;
+  & ${Header}:first-child {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
   }
-  :last-child {
-    border-bottom: 0;
+  & ${Header}:last-child {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
   }
 `;
 
@@ -53,6 +51,17 @@ export const RowAmount = styled.td`
   font-weight: 700;
   color: ${props => (props.type === 'INCOME' ? '#24CCA7' : '#ff6596')};
 `;
+
+export const RowTr = styled.tr`
+  height: 54px;
+  font-weight: 400;
+  font-size: 16px;
+  :not(:last-child) {
+    border-bottom: 1px solid #dcdcdf;
+    border-bottom-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  }
+`;
+
 export const ButtonStyle = styled.button`
   margin: 0 auto;
   border: 0;
