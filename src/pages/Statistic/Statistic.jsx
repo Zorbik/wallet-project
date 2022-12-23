@@ -9,7 +9,7 @@ import {
 import { Selectors } from '../../components/statistic/selector/dropdown-select';
 
 export function Statistic() {
-  const statistics = useSelector(state => state.userInformation.financeData);
+  const statistics = useSelector(state => state.statistic);
 
   return (
     <>
@@ -18,8 +18,8 @@ export function Statistic() {
         <StatisticsWrapper>
           {statistics && (
             <>
-              {statistics?.totalIncome || statistics?.totalExpenses ? (
-                statistics?.totalExpenses ? (
+              {statistics?.incomeSummary || statistics?.expenseSummary ? (
+                statistics?.expenseSummary ? (
                   <Chart statistics={statistics} />
                 ) : (
                   <p>

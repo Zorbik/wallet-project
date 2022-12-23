@@ -1,40 +1,35 @@
 import { Formik, ErrorMessage } from 'formik';
-import Notiflix from 'notiflix';
-import { getStatistic } from '../../../redux/statistic/statisticOperations';
+// import Notiflix from 'notiflix';
+import  { getStatistic }  from '../../../redux/statistic/statisticOperations';
 import { useEffect, useState } from 'react';
 import { StyledForm, StyledField, FieldContainer } from './dropdown-select.styled';
+import { useDispatch } from 'react-redux';
 
 export function Selectors() {
-  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [month, setMonth] = useState(new Date().getMonth() +1);
   const [year, setYear] = useState(new Date().getFullYear());
 
-  const [getStatistics] = getStatistic();
+  const dispatch = useDispatch()
 
-  Notiflix.Notify.merge({
-    timeout: 4000,
-    width: '300 px',
-    useIcon: true,
-    fontSize: '12px',
-    distance: '90px',
-    clickToClose: true,
-  });
+  // Notiflix.Notify.merge({
+  //   timeout: 4000,
+  //   width: '300 px',
+  //   useIcon: true,
+  //   fontSize: '12px',
+  //   distance: '90px',
+  //   clickToClose: true,
+  // });
 
   useEffect(() => {
-    getStatistics({ month, year }).then(({ data }) => {
-      const { totalExpenses, totalIncome } = data[0];
-      if (!totalExpenses && !totalIncome) {
-        Notiflix.Notify.warning(
-          'There are no transactions in the selected period'
-        );
-      }
-    });
-  }, [month, year, getStatistics]);
+    dispatch(
+    getStatistic({ month, year }));
+  }, [dispatch, month, year]);
 
   const handleMonthChange = e => {
     setMonth(Number(e[0].value));
   };
   const handleYearChange = e => {
-    setYear(Number(e[0].value));
+    setYear(Number(e[0].value));    
   };
 
   const options = [
@@ -99,3 +94,13 @@ function generateYearOptions(currentYear) {
   }
   return yearOptions;
 }
+
+
+// .then(({ data }) => {
+//       const { totalExpenses, totalIncome } = data[0];
+//       if (!totalExpenses && !totalIncome) {
+//         Notiflix.Notify.warning(
+//           'There are no transactions in the selected period'
+//         );
+//       }
+//     }))
