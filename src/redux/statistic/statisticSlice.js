@@ -19,7 +19,7 @@ export const statisticSlice = createSlice({
     builder.addCase(getStatistic.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.error = null;
-      state.statistic = { ...state.statistic, payload };
+      state.statistic = { ...payload };
     });
     builder.addCase(getStatistic.rejected, (state, { payload }) => {
       state.isLoading = false;
