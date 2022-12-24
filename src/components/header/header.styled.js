@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { BoxStyled } from '../appBar/AppBar.styled';
 import { Box } from '../Box';
 
 export const BoxWrapper = styled(Box)`
@@ -8,7 +7,7 @@ export const BoxWrapper = styled(Box)`
   justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 768px) {
-    width:280px;
+    width: 280px;
     margin: auto;
   }
   @media screen and (min-width: 768px) {
@@ -20,7 +19,6 @@ export const BoxWrapper = styled(Box)`
     margin: auto;
   }
 `;
-
 
 export const UserName = styled.p`
   margin-right: 8px;
