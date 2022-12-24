@@ -2,18 +2,28 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Header } from './header/header';
 import { AppBar } from './appBar/AppBar';
-import { Container, LayoutStyledBox } from './appBar/AppBar.styled';
+import {
+  Container,
+  LayoutStyledBox,
+  StyledContainer,
+} from './appBar/AppBar.styled';
+import { Box } from './Box';
 
 export const Layout = () => {
   return (
-    <Container display="flex" flexDirection="column">
-      <Header></Header>
+    <Box display="flex" flexDirection="column">
+      <Container>
+        <Header></Header>
+      </Container>
+
       <LayoutStyledBox>
-        <AppBar></AppBar>
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
+        <StyledContainer>
+          <AppBar></AppBar>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+        </StyledContainer>
       </LayoutStyledBox>
-    </Container>
+    </Box>
   );
 };

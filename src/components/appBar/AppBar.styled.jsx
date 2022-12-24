@@ -5,7 +5,6 @@ import Ellipse_dec_1x from '../../images/dec/Ellipse_dec_1x.png';
 import Ellipse_2_dec_1x from '../../images/dec/Ellipse_2_dec_1x.png';
 
 export const Container = styled(Box)`
-  height: 100vh;
   box-sizing: border-box;
   padding: 0 16px;
   margin: 0 auto;
@@ -14,18 +13,30 @@ export const Container = styled(Box)`
   }
   @media screen and (min-width: 768px) {
     width: 768px;
-    background-color: #e5e5e5;
-    background-image: url(${Ellipse_dec_1x}), url(${Ellipse_2_dec_1x});
-    background-position: bottom left, top right;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
 `;
+export const StyledContainer = styled(Box)`
+  box-sizing: border-box;
+  padding: 0 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    flex-direction: row;
+    height: calc(100vh - 80px);
+  }
+`;
+
 export const BoxWrapper = styled(Box)`
   @media screen and (min-width: 768px) {
     display: flex;
@@ -82,10 +93,14 @@ export const NavMenuModal = styled.div`
 `;
 
 export const LayoutStyledBox = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  @media screen and (min-width: 1280px) {
-    flex-direction: row;
+  @media screen and (min-width: 768px) {
+    background-color: #e5e5e5;
+    background-image: url(${Ellipse_dec_1x}), url(${Ellipse_2_dec_1x});
+    background-position: bottom left, top right;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 export const Link = styled(NavLink)`

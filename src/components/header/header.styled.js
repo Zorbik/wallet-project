@@ -15,8 +15,6 @@ export const BoxWrapper = styled(Box)`
   }
   @media screen and (min-width: 1280px) {
     width: 1248px;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
 `;
 
