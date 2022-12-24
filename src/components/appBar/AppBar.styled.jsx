@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { NavLink } from 'react-router-dom';
+import Ellipse_dec_1x from '../../images/dec/Ellipse_dec_1x.png';
+import Ellipse_2_dec_1x from '../../images/dec/Ellipse_2_dec_1x.png';
 
 export const Container = styled(Box)`
+  height: 100vh;
   box-sizing: border-box;
   padding: 0 16px;
   margin: 0 auto;
@@ -11,6 +14,13 @@ export const Container = styled(Box)`
   }
   @media screen and (min-width: 768px) {
     width: 768px;
+    background-color: #e5e5e5;
+    background-image: url(${Ellipse_dec_1x}), url(${Ellipse_2_dec_1x});
+    background-position: bottom left, top right;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
@@ -64,11 +74,11 @@ export const NavMenu = styled.div`
 export const NavMenuModal = styled.div`
   width: 192px;
   height: 44px;
-  margin: 15px 44px  28px;
+  margin: 15px 44px 28px;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const LayoutStyledBox = styled(Box)`

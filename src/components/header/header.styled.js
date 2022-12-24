@@ -12,11 +12,11 @@ export const BoxWrapper = styled(Box)`
   }
   @media screen and (min-width: 768px) {
     width: 704px;
-    margin: auto;
   }
   @media screen and (min-width: 1280px) {
     width: 1248px;
-    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 
