@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { StyledBox, StyledButton, StyledLink } from './Appbar.styled';
 import { logOut } from '../../redux/userAuth/userAuthOperations';
 import { Logo, LogoSvg } from '../loginForm/LoginFormStyled';
-import { LogOutBtn, LogOutSpan, LogOutSvg, UserName } from './header.styled';
+import { LogOutBtn, LogOutSpan, LogOutSvg, UserName, BoxWrapper } from './header.styled';
 
 export const Header = () => {
   //   const isLoggedIn = useSelector(state => state.userData.isLoggedIn);
@@ -17,12 +17,8 @@ export const Header = () => {
   };
 
   return (
-    <Box
-      as="header"
-      height="80px"
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
+    <BoxWrapper
+     
     >
       <Logo>
         <LogoSvg
@@ -61,6 +57,6 @@ export const Header = () => {
         </LogOutBtn>
       </Box>
       <Toaster position="top-center" reverseOrder={false} />
-    </Box>
+    </BoxWrapper>
   );
 };

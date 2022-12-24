@@ -16,6 +16,39 @@ export const Container = styled(Box)`
     width: 1280px;
   }
 `;
+export const BoxWrapper = styled(Box)`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin: auto;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-direction: column;
+
+    margin: 0 69px 0 0;
+  }
+`;
+
+export const BoxStyled = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    width: 280px;
+    margin: auto;
+  }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+  }
+`;
+export const BoxStyledModal = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin: auto;
+`;
+
 export const NavMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,6 +61,15 @@ export const NavMenu = styled.div`
     margin-bottom: 28px;
   }
 `;
+export const NavMenuModal = styled.div`
+  width: 192px;
+  height: 44px;
+  margin: 15px 44px  28px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+`;
 
 export const LayoutStyledBox = styled(Box)`
   display: flex;
@@ -37,7 +79,7 @@ export const LayoutStyledBox = styled(Box)`
   }
 `;
 export const Link = styled(NavLink)`
-  height: 18px;
+  height: 27px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -47,6 +89,7 @@ export const Link = styled(NavLink)`
     display: inline-block;
     font-family: Poppins, sans-serif;
     font-size: 18px;
+    line-height: 1.5;
     color: #000;
   }
   &.active span {
@@ -60,8 +103,7 @@ export const TotalBalanceWrapper = styled.div`
   border-radius: 30px;
   padding: 8px 32px;
   background-color: silver;
-  margin-left: auto;
-  margin-right: auto;
+
   @media (min-width: 768px) {
     width: 336px;
     padding: 8px 40px;

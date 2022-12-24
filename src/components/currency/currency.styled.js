@@ -23,13 +23,14 @@ export const CurrencyContainer = styled.div`
     height: 174px;
   }
   @media screen and (min-width: 768px) {
-    margin: 32px;
+    margin: 32px 0 0 32px;
     width: 336px;
     height: 182px;
   }
   @media screen and (min-width: 1280px) {
     width: 393px;
     height: 347px;
+    margin: 32px 0 0 0;
   }
 `;
 

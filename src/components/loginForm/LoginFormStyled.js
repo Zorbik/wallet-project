@@ -25,12 +25,12 @@ export const LogoSvg = styled.svg`
     height: 30px;
     }
 `;
-export const Logo = styled.h1`
+export const Logo = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 768px) {
-    margin-bottom: 60px;
+    margin-bottom: 0;
   }
 `;
 
