@@ -4,7 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { PrivateRoute } from './components/navigation/PrivateRoute';
 import { PublicRoute } from './components/navigation/PublicRoute';
-import { Home, LoginPage, RegisterPage, Statistic } from './pages';
+import {
+  CurrencyMobPage,
+  Home,
+  LoginPage,
+  RegisterPage,
+  Statistic,
+} from './pages';
 import { getCurrentUser } from './redux/userAuth/userAuthOperations';
 
 function App() {
@@ -28,6 +34,7 @@ function App() {
           >
             <Route index element={<Home />} />
             <Route path="statistic" element={<Statistic />} />
+            <Route path="currency" element={<CurrencyMobPage />} />
           </Route>
           <Route
             path="login"

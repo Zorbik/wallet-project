@@ -6,3 +6,4 @@ export const LoginPage = lazy(() => import('./loginPage/loginPage'));
 export const RegisterPage = lazy(() =>
   import('./registrationPage/registrationPage')
 );
+export const CurrencyMobPage = lazy(() => import('./CurrencyMob/CurrencyMob'));
