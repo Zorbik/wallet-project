@@ -10,8 +10,12 @@ import {
   NavMenuModal,
 } from './AppBar.styled';
 
-import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg';
+import { ReactComponent as HomeIcon } from '../../icons/homeIcon.svg';
 import { ReactComponent as DiagramIcon } from '../../icons/statIcon.svg';
+import { ReactComponent as DollarIcon } from '../../icons/dollarIcon.svg';
+import { ReactComponent as BigHomeIcon } from '../../icons/bigHomeIcon.svg';
+import { ReactComponent as BigDiagramIcon } from '../../icons/bigDiagramIcon.svg';
+
 import Balance from '../balance/balance';
 import { useSelector } from 'react-redux';
 import { Currency } from '../currency/currency';
@@ -28,13 +32,13 @@ export const AppBar = () => {
           <BoxStyledModal>
             <NavMenuModal>
               <Link to="/">
-                <HomeIcon />
+                <BigHomeIcon />
               </Link>
               <Link to="statistic">
-                <DiagramIcon />
+                <BigDiagramIcon />
               </Link>
               <Link to="currency">
-                <DiagramIcon />
+                <DollarIcon />
               </Link>
             </NavMenuModal>
             <TotalBalanceWrapper>
