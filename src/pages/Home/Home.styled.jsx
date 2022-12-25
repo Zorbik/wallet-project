@@ -3,7 +3,7 @@ import { Box } from '../../components/Box';
 import { VscAdd } from 'react-icons/vsc';
 
 export const Button = styled.button`
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,6 +18,7 @@ export const Button = styled.button`
   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
 
   @media screen and (min-width: 768px) {
+    position: absolute;
     right: 40px;
     bottom: 40px;
   }
