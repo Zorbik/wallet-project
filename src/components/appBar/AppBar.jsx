@@ -4,8 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import {
   NavMenu,
   Link,
-  TotalBalanceWrapper,
-  Title,
   BoxStyled,
   BoxWrapper,
   BoxStyledModal,
@@ -17,13 +15,11 @@ import { ReactComponent as DiagramIcon } from '../../icons/statIcon.svg';
 import { ReactComponent as DollarIcon } from '../../icons/DollarIcon.svg';
 import { ReactComponent as BigHomeIcon } from '../../icons/bigHomeIcon.svg';
 import { ReactComponent as BigDiagramIcon } from '../../icons/bigDiagramIcon.svg';
+import { TotalBalance } from '.././totalBalance/TotalBalance';
 
-import Balance from '../balance/balance';
-import { useSelector } from 'react-redux';
 import { Currency } from '../currency/currency';
 
 export const AppBar = () => {
-  const { balance } = useSelector(state => state.userData.user);
   const isWide = useMedia('(max-width:768px)');
 
   return (
@@ -42,10 +38,6 @@ export const AppBar = () => {
                 <DollarIcon />
               </Link>
             </NavMenuModal>
-            <TotalBalanceWrapper>
-              <Title>Your balance</Title>
-              <Balance balance={balance} />
-            </TotalBalanceWrapper>
           </BoxStyledModal>
         </BoxWrapper>
       ) : (
@@ -61,10 +53,7 @@ export const AppBar = () => {
                 <span>Statistics</span>
               </Link>
             </NavMenu>
-            <TotalBalanceWrapper>
-              <Title>Your balance</Title>
-              <Balance balance={balance} />
-            </TotalBalanceWrapper>
+            <TotalBalance />
           </BoxStyled>
           <Currency />
         </BoxWrapper>
