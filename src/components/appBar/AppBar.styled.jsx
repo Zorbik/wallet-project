@@ -30,7 +30,7 @@ export const StyledContainer = styled(Box)`
   }
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;

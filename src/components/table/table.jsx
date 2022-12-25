@@ -30,7 +30,7 @@ const TableTransactions = () => {
   const dispatch = useDispatch();
   const { transactions } = useSelector(state => state.transactionsData);
   const { categories } = useSelector(state => state.categoriesData);
-  const isWide = useMedia('(max-width:768px)');
+  const isWide = useMedia('(max-width:767px)');
 
   const sortedTransactions = transactions => {
     return [...transactions].sort(function (a, b) {

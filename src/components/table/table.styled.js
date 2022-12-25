@@ -13,6 +13,10 @@ export const Table = styled.table`
   text-align: center;
   line-height: 1.5;
   color: #000000;
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   @media screen and (min-width: 1280px) {
     margin-top: 46px;
     width: 715px;
@@ -55,7 +59,7 @@ export const RowAmount = styled.td`
 `;
 
 export const RowTr = styled.tr`
-  height: 54px;
+  height: 35px;
   font-weight: 400;
   font-size: 16px;
   :not(:last-child) {

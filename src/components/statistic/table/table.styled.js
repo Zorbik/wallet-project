@@ -74,6 +74,10 @@ export const BodyTr = styled.tr`
 
   @media screen and (max-width: 767px) {
     padding: 0 20px;
+    height: 35px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 35px;
   }
 `;
 export const BodyText = styled.span`
