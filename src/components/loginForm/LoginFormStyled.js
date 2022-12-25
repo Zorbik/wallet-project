@@ -13,7 +13,7 @@ export const Box = styled.div`
     height: 568px;
     padding: 107px 20px;
     border-radius: 0px;
-    }
+  }
 `;
 export const LogoSvg = styled.svg`
   margin-right: 20px;
@@ -23,7 +23,7 @@ export const LogoSvg = styled.svg`
     margin-right: 16px;
     width: 30px;
     height: 30px;
-    }
+  }
 `;
 export const Logo = styled.h2`
   display: flex;
@@ -69,7 +69,6 @@ export const AuthLabel = styled.label`
   position: relative;
   width: 280px;
   display: block;
-  
 `;
 
 export const LogBtn = styled.button`
@@ -122,13 +121,13 @@ export const RegBtn = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.1em;
-  background-color: #fffff;
+  background-color: #fff;
   color: #4a56e2;
   border: 1px solid #4a56e2;
 
   :hover,
   :focus {
-    color: #ffffff;
+    color: #fff;
     background-color: #4a56e2;
     border: 1px solid #4a56e2;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
