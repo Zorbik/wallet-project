@@ -1,4 +1,6 @@
 import { useMedia } from 'react-use';
+import { Toaster } from 'react-hot-toast';
+
 import {
   NavMenu,
   Link,
@@ -19,7 +21,6 @@ import { ReactComponent as BigDiagramIcon } from '../../icons/bigDiagramIcon.svg
 import Balance from '../balance/balance';
 import { useSelector } from 'react-redux';
 import { Currency } from '../currency/currency';
-//import { ReactComponent as MoneyIcon } from 'images/icons/DollarIcon.svg';
 
 export const AppBar = () => {
   const { balance } = useSelector(state => state.userData.user);
@@ -68,6 +69,7 @@ export const AppBar = () => {
           <Currency />
         </BoxWrapper>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

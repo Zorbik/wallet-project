@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // const transactionForm = {
@@ -15,6 +16,7 @@ export const addTransaction = createAsyncThunk(
   async (transactionForm, thunkAPI) => {
     try {
       const { data } = await axios.post('/transactions', transactionForm);
+      toast.success(`Transaction added!`);
 
       return data;
     } catch ({ response }) {
@@ -42,6 +44,7 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       await axios.delete(`/transactions/${transactionId}`);
+      toast.success(`Transaction deleted!`);
 
       return transactionId;
     } catch ({ response }) {

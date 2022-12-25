@@ -107,10 +107,8 @@ export const ModalTransactions = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // setSelectedDate(selectedDate);
     const category = findCategory(userChoice.value) || categories[10];
     const userSum = Number(sum).toFixed(2);
-    console.log(selectedDate);
     dispatch(
       addTransaction({
         transactionDate: toIsoDate(selectedDate),

@@ -18,9 +18,8 @@ export const createNewUser = createAsyncThunk(
   async (newUserData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/sign-up', newUserData);
-      console.log('data', data);
       token.set(data.token);
-      toast.success(`Реєстрація пройшла успішно!`);
+      toast.success(`Registration successful!`);
 
       return data;
     } catch ({ response }) {
@@ -34,11 +33,9 @@ export const logInUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/sign-in', userData);
-      console.log('data', data);
-
       token.set(data.token);
 
-      toast.success(`Вхід виконан успішно!`);
+      toast.success(`Login successful!`);
 
       return data;
     } catch ({ response }) {
@@ -54,7 +51,7 @@ export const logOut = createAsyncThunk(
       await axios.delete('/auth/sign-out');
       token.unset();
 
-      toast.success(`До скорої зустрічі!`);
+      toast.success(`See you soon!`);
     } catch ({ response }) {
       return rejectWithValue(response.data.message);
     }

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 import {
   addTransaction,
   getTransactions,
@@ -16,47 +17,51 @@ export const transactionsSlice = createSlice({
   initialState: initialState,
 
   extraReducers: builder => {
-    builder.addCase(addTransaction.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = '';
-    });
-    builder.addCase(addTransaction.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      state.transactions = [...state.transactions, payload];
-    });
-    builder.addCase(addTransaction.rejected, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    });
-    builder.addCase(getTransactions.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = '';
-    });
-    builder.addCase(getTransactions.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.transactions = action.payload;
-    });
-    builder.addCase(getTransactions.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
-    builder.addCase(deleteTransaction.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = '';
-    });
-    builder.addCase(deleteTransaction.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      state.transactions = state.transactions.filter(
-        transaction => transaction.id !== payload
-      );
-    });
-    builder.addCase(deleteTransaction.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
+    builder
+      .addCase(addTransaction.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(addTransaction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.transactions = [...state.transactions, payload];
+      })
+      .addCase(addTransaction.rejected, (state, { payload }) => {
+        toast.error(payload);
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(getTransactions.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(getTransactions.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.transactions = action.payload;
+      })
+      .addCase(getTransactions.rejected, (state, { payload }) => {
+        toast.error(payload);
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(deleteTransaction.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(deleteTransaction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.transactions = state.transactions.filter(
+          transaction => transaction.id !== payload
+        );
+      })
+      .addCase(deleteTransaction.rejected, (state, { payload }) => {
+        toast.error(payload);
+        state.isLoading = false;
+        state.error = payload;
+      });
   },
 });
 

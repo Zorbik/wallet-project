@@ -6,13 +6,9 @@ export const getStatistic = createAsyncThunk(
 
   async (params, thunkAPI) => {
     try {
-      console.log('parameters', params);
-
       const { data } = await axios.get('/transactions-summary', {
         params,
       });
-
-      console.log('data', data);
       return data;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data.message);

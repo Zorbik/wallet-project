@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 import { fetchCategories } from './categoriesOperations';
 
 const initialState = {
@@ -12,19 +13,21 @@ export const categoriesSlice = createSlice({
   initialState: initialState,
 
   extraReducers: builder => {
-    builder.addCase(fetchCategories.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = '';
-    });
-    builder.addCase(fetchCategories.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.categories = action.payload;
-    });
-    builder.addCase(fetchCategories.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
+    builder
+      .addCase(fetchCategories.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(fetchCategories.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.categories = payload;
+      })
+      .addCase(fetchCategories.rejected, (state, { payload }) => {
+        toast.error(payload);
+        state.isLoading = false;
+        state.error = payload;
+      });
   },
 });
 

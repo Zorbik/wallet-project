@@ -10,23 +10,20 @@ import {
 import { useDispatch } from 'react-redux';
 
 export function Selectors() {
-  const [month, setMonth] = useState();
-  const [year, setYear] = useState();
+  const STORAGE_KEY = 'statistic';
+  const [month, setMonth] = useState(
+    JSON.parse(localStorage.getItem(STORAGE_KEY))?.month || ''
+  );
+  const [year, setYear] = useState(
+    JSON.parse(localStorage.getItem(STORAGE_KEY))?.year || ''
+  );
 
   const dispatch = useDispatch();
-
-  // Notiflix.Notify.merge({
-  //   timeout: 4000,
-  //   width: '300 px',
-  //   useIcon: true,
-  //   fontSize: '12px',
-  //   distance: '90px',
-  //   clickToClose: true,
-  // });
 
   useEffect(() => {
     if (!Boolean(month) || !Boolean(year)) return;
     dispatch(getStatistic({ month, year }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ month, year }));
   }, [dispatch, month, year]);
 
   const handleMonthChange = e => {
