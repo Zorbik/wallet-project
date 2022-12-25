@@ -27,6 +27,9 @@ export const Button = styled.button`
 export const StyledBox = styled(Box)`
   position: relative;
   margin: 0 auto;
+   @media screen and (min-width: 1280px) {
+    margin-right:0
+   }
 `;
 
 export const IconPlus = styled(VscAdd)`
