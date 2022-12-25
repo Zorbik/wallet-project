@@ -9,7 +9,9 @@ import {
 import { Selectors } from '../../components/statistic/selector/dropdown-select';
 
 export function Statistic() {
-  const statistics = useSelector(state => state.statistic);
+  const statistics = useSelector(state => state.statisticData.statistic);
+  console.log('statData',statistics)
+ 
 
   return (
     <>

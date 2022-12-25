@@ -21,6 +21,7 @@ export function Selectors() {
   // });
 
   useEffect(() => {
+    
     dispatch(
     getStatistic({ month, year }));
   }, [dispatch, month, year]);
@@ -94,13 +95,3 @@ function generateYearOptions(currentYear) {
   }
   return yearOptions;
 }
-
-
-// .then(({ data }) => {
-//       const { totalExpenses, totalIncome } = data[0];
-//       if (!totalExpenses && !totalIncome) {
-//         Notiflix.Notify.warning(
-//           'There are no transactions in the selected period'
-//         );
-//       }
-//     }))
