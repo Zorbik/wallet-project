@@ -66,9 +66,9 @@ export const userAuthSlice = createSlice({
         toast.error(payload);
         state.isLoggedIn = false;
         state.isPending = false;
+      })
+      .addCase(addTransaction.fulfilled, (state, { payload }) => {
+        state.user.balance = payload.balanceAfter;
       });
-    builder.addCase(addTransaction.fulfilled, (state, { payload }) => {
-      state.user.balance = payload.balanceAfter;
-    });
   },
 });
