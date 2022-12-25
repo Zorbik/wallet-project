@@ -11,6 +11,7 @@ import {
     ExpenseSummary,
     IncomeSummary,
   } from './table.styled';
+  import colorsChart from '../chart/colorsChart'
   
   export function Table({ statistics }) {
     if (!statistics) {
@@ -29,22 +30,22 @@ import {
               </TableHeadTr>
             </TableHead>
             <TableBody>
-              {categoriesSummary.map(category => (
-                <BodyTr key={category.id}>
+              {categoriesSummary.map(({name, total,},el) => (
+                <BodyTr key={name}>
                   <Tabrow>
                     <p
                       style={{
-                        backgroundColor: category.color,
+                        backgroundColor: colorsChart[el],
                         width: '24px',
                         height: '24px',
                         borderRadius: '2px',
                       }}
                     ></p>
-                    <BodyText>{category.title}</BodyText>
+                    <BodyText>{name}</BodyText>
                   </Tabrow>
                   <Tabrow></Tabrow>
                   <Tabrow>
-                    <BodyText>{category.total ? category.total : 0}</BodyText>
+                    <BodyText>{total ? total : 0}</BodyText>
                   </Tabrow>
                 </BodyTr>
               ))}
