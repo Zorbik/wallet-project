@@ -5,6 +5,10 @@ export const Tabl = styled.table`
   border-collapse: collapse;
   text-align: left;
   margin-bottom: 16px;
+  overflow-y: scroll;
+  max-height:50%;
+  margin-top: 50px;
+  margin-bottom:50px;
 `;
 
 export const TabHeader = styled.th`
@@ -34,7 +38,7 @@ export const TableHeadTr = styled.tr`
   line-height: 27px;
   border-radius: 30px;
   height: 58px;
-  background-color: var(--primary-bg-color);
+  background-color: #FFFFFF;
 
   @media screen and (max-width: 767px) {
     width: 100%;
