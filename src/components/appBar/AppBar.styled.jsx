@@ -8,6 +8,7 @@ export const Container = styled(Box)`
   box-sizing: border-box;
   padding: 0 16px;
   margin: 0 auto;
+  width: 100%;
   @media screen and (min-width: 480px) {
     width: 480px;
   }

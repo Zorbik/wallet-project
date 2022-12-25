@@ -49,7 +49,12 @@ export const Header = () => {
         </LogoSvg>
         Wallet
       </Logo>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        ml="auto"
+      >
         <UserName>{user.username}</UserName>
         <LogOutBtn type="button" onClick={onClick}>
           <LogOutSvg xmlns="http://www.w3.org/2000/svg" width="18" height="18">

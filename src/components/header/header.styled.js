@@ -6,17 +6,6 @@ export const BoxWrapper = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 288px;
-  @media screen and (min-width: 480px) {
-    width: 448px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 736px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 1248px;
-  }
 `;
 
 export const UserName = styled.p`
