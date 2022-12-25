@@ -9,10 +9,10 @@ export function Chart({ statistics }) {
   console.log('statistics', statistics);
   const { expenseSummary, categoriesSummary, incomeSummary } = statistics;
   const data = {
-    labels: categoriesSummary.map(category => category.title),
+    labels: categoriesSummary.map(category => category.name),
     datasets: [
       {
-        label: 'Statistics',
+        label: 'Amount',
         data: categoriesSummary.map(category =>
           category.total ? category.total : 0
         ),
