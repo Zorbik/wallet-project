@@ -1,13 +1,13 @@
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { ChartWrapper, ChartBalInfo } from './chart.styled';
-import colorsChart from './colorsChart'
-
+import colorsChart from './colorsChart';
 
 ChartJS.register(ArcElement, Tooltip);
 
 export function Chart({ statistics }) {
-  const { expenseSummary, categoriesSummary } = statistics;
+  console.log('statistics', statistics);
+  const { expenseSummary, categoriesSummary, incomeSummary } = statistics;
   const data = {
     labels: categoriesSummary.map(category => category.title),
     datasets: [
@@ -26,7 +26,7 @@ export function Chart({ statistics }) {
     <>
       <ChartWrapper>
         <Doughnut data={data} />
-        <ChartBalInfo>{` ₴ ${expenseSummary}`}</ChartBalInfo>
+        <ChartBalInfo>{` ₴ ${expenseSummary + incomeSummary}`}</ChartBalInfo>
       </ChartWrapper>
     </>
   );
