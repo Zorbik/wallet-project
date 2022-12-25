@@ -13,7 +13,6 @@ import {
 } from './header.styled';
 
 export const Header = () => {
-  //   const isLoggedIn = useSelector(state => state.userData.isLoggedIn);
   const user = useSelector(state => state.userData.user);
   const dispatch = useDispatch();
 

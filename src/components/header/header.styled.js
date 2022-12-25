@@ -6,10 +6,11 @@ export const BoxWrapper = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: 768px) {
-    width: 280px;
-    margin: auto;
+  width: 288px;
+  @media screen and (min-width: 480px) {
+    width: 448px;
   }
+
   @media screen and (min-width: 768px) {
     width: 736px;
   }

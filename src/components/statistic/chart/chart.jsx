@@ -6,7 +6,6 @@ import colorsChart from './colorsChart';
 ChartJS.register(ArcElement, Tooltip);
 
 export function Chart({ statistics }) {
-  console.log('statistics', statistics);
   const { expenseSummary, categoriesSummary, incomeSummary } = statistics;
   const data = {
     labels: categoriesSummary.map(category => category.title),
