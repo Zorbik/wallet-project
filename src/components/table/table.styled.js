@@ -26,10 +26,14 @@ export const Thead = styled.thead`
 `;
 
 export const Header = styled.th`
-  min-width: 75px;
+  width: 100px;
   border: none;
   padding-top: 15px;
   padding-bottom: 16px;
+  margin-right: 0;
+  @media screen and (min-width: 1280px) {
+    width: 102px;
+  }
 `;
 
 export const HeaderTr = styled.tr`
