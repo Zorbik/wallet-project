@@ -2,7 +2,6 @@ import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useMedia } from 'react-use';
 import { nanoid } from 'nanoid';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../redux/categoriesTransactions/categoriesOperations';
 import {

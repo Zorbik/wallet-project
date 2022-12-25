@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import BarLoader from 'react-spinners/BarLoader';
 import { CurrencyField } from './currencyField';
 import {
   LoadSpinner,
@@ -9,8 +11,6 @@ import {
   Title,
   TitleItem,
 } from './currency.styled.js';
-import axios from 'axios';
-import BarLoader from 'react-spinners/BarLoader';
 
 export const Currency = () => {
   const [rateUsd, setRateUsd] = useState(null);

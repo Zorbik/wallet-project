@@ -1,13 +1,14 @@
 import { Formik, ErrorMessage } from 'formik';
-// import Notiflix from 'notiflix';
-import { getStatistic } from '../../../redux/statistic/statisticOperations';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { getStatistic } from '../../../redux/statistic/statisticOperations';
+
 import {
   StyledForm,
   StyledField,
   FieldContainer,
 } from './dropdown-select.styled';
-import { useDispatch } from 'react-redux';
 
 export function Selectors() {
   const STORAGE_KEY = 'statistic';

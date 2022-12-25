@@ -23,16 +23,14 @@ export function Statistic() {
         <StatisticsWrapper>
           {statistics && (
             <>
-              {statistics?.incomeSummary || statistics?.expenseSummary ? (
-                statistics?.expenseSummary ? (
-                  <Chart statistics={statisticsExpenses} />
-                ) : (
-                  <p>
-                    There are no expenses
-                    <br /> in the selected period
-                  </p>
-                )
-              ) : null}
+              {statistics?.expenseSummary ? (
+                <Chart statistics={statisticsExpenses} />
+              ) : (
+                <p>
+                  There are no expenses
+                  <br /> in the selected period
+                </p>
+              )}
             </>
           )}
           <TableContainer>
