@@ -10,9 +10,9 @@ import {
   NavMenuModal,
 } from './AppBar.styled';
 
-import { ReactComponent as HomeIcon } from '../../icons/homeIcon.svg';
+import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg';
 import { ReactComponent as DiagramIcon } from '../../icons/statIcon.svg';
-import { ReactComponent as DollarIcon } from '../../icons/dollarIcon.svg';
+import { ReactComponent as DollarIcon } from '../../icons/DollarIcon.svg';
 import { ReactComponent as BigHomeIcon } from '../../icons/bigHomeIcon.svg';
 import { ReactComponent as BigDiagramIcon } from '../../icons/bigDiagramIcon.svg';
 
