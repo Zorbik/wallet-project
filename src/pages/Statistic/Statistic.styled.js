@@ -5,9 +5,9 @@ export const StatisticsContainer = styled.div`
     padding-top: 0;
   }
 
-  @media screen and (min-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 30px;
-    margin-left: 138px;
+    margin: 0 auto;
   }
 
   h2 {

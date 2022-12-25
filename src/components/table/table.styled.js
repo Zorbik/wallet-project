@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Table = styled.table`
   display: block;
   width: 704px;
+
   margin-top: 20px;
   height: 531px;
   border-collapse: collapse;
@@ -55,7 +56,7 @@ export const RowTr = styled.tr`
   font-size: 16px;
   :not(:last-child) {
     border-bottom: 1px solid #dcdcdf;
-    border-bottom-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    /* border-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6); */
   }
 `;
 

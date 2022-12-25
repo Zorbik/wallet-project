@@ -1,15 +1,19 @@
 import { Formik, ErrorMessage } from 'formik';
 // import Notiflix from 'notiflix';
-import  { getStatistic }  from '../../../redux/statistic/statisticOperations';
+import { getStatistic } from '../../../redux/statistic/statisticOperations';
 import { useEffect, useState } from 'react';
-import { StyledForm, StyledField, FieldContainer } from './dropdown-select.styled';
+import {
+  StyledForm,
+  StyledField,
+  FieldContainer,
+} from './dropdown-select.styled';
 import { useDispatch } from 'react-redux';
 
 export function Selectors() {
-  const [month, setMonth] = useState(new Date().getMonth() +1);
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [month, setMonth] = useState();
+  const [year, setYear] = useState();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // Notiflix.Notify.merge({
   //   timeout: 4000,
@@ -21,16 +25,15 @@ export function Selectors() {
   // });
 
   useEffect(() => {
-    
-    dispatch(
-    getStatistic({ month, year }));
+    if (!Boolean(month) || !Boolean(year)) return;
+    dispatch(getStatistic({ month, year }));
   }, [dispatch, month, year]);
 
   const handleMonthChange = e => {
-    setMonth(Number(e[0].value));
+    setMonth(e[0].value);
   };
   const handleYearChange = e => {
-    setYear(Number(e[0].value));    
+    setYear(e[0].value);
   };
 
   const options = [
@@ -85,7 +88,7 @@ export function Selectors() {
 function generateCurrentMonth(month, options) {
   let currentMonth = options.filter(e => e.value === month);
 
-  return currentMonth[0].name;
+  return currentMonth[0]?.name;
 }
 
 function generateYearOptions(currentYear) {

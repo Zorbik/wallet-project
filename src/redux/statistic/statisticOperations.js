@@ -4,10 +4,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const getStatistic = createAsyncThunk(
   'statistic/getStatistic',
 
-  async (parameters, thunkAPI) => {
+  async (params, thunkAPI) => {
     try {
-      const { data } = await axios.get('/transactions-summary', parameters);
-console.log(data)
+      console.log('parameters', params);
+
+      const { data } = await axios.get('/transactions-summary', {
+        params,
+      });
+
+      console.log('data', data);
       return data;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data.message);

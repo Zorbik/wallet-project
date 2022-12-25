@@ -10,8 +10,11 @@ import { Selectors } from '../../components/statistic/selector/dropdown-select';
 
 export function Statistic() {
   const statistics = useSelector(state => state.statisticData.statistic);
-  console.log('statData',statistics)
- 
+  const categoriesSummary = statistics?.categoriesSummary?.filter(
+    trans => trans.type !== 'INCOME'
+  );
+
+  const statisticsExpenses = { ...statistics, categoriesSummary };
 
   return (
     <>
@@ -22,7 +25,7 @@ export function Statistic() {
             <>
               {statistics?.incomeSummary || statistics?.expenseSummary ? (
                 statistics?.expenseSummary ? (
-                  <Chart statistics={statistics} />
+                  <Chart statistics={statisticsExpenses} />
                 ) : (
                   <p>
                     There are no expenses
@@ -34,7 +37,7 @@ export function Statistic() {
           )}
           <TableContainer>
             <Selectors />
-            <Table statistics={statistics} />
+            <Table statistics={statisticsExpenses} />
           </TableContainer>
         </StatisticsWrapper>
       </StatisticsContainer>

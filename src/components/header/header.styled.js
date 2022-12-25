@@ -11,7 +11,7 @@ export const BoxWrapper = styled(Box)`
     margin: auto;
   }
   @media screen and (min-width: 768px) {
-    width: 704px;
+    width: 736px;
   }
   @media screen and (min-width: 1280px) {
     width: 1248px;
