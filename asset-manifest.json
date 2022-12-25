@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/wallet-project/static/css/main.8c97574b.css",
-    "main.js": "/wallet-project/static/js/main.5805ef14.js",
+    "main.js": "/wallet-project/static/js/main.267cca97.js",
     "static/css/793.d96189b1.chunk.css": "/wallet-project/static/css/793.d96189b1.chunk.css",
-    "static/js/793.bf867b20.chunk.js": "/wallet-project/static/js/793.bf867b20.chunk.js",
+    "static/js/793.b21b6e74.chunk.js": "/wallet-project/static/js/793.b21b6e74.chunk.js",
     "static/js/967.63b997e9.chunk.js": "/wallet-project/static/js/967.63b997e9.chunk.js",
     "static/js/940.3d40f221.chunk.js": "/wallet-project/static/js/940.3d40f221.chunk.js",
     "static/css/715.628ee340.chunk.css": "/wallet-project/static/css/715.628ee340.chunk.css",
@@ -23,9 +23,9 @@
     "static/media/HomeIcon.svg": "/wallet-project/static/media/HomeIcon.75ef80808c5ae38c2557bb7d86ae12dd.svg",
     "static/media/bigHomeIcon.svg": "/wallet-project/static/media/bigHomeIcon.82df84f91db8cb47e5a638a5205c0a9b.svg",
     "main.8c97574b.css.map": "/wallet-project/static/css/main.8c97574b.css.map",
-    "main.5805ef14.js.map": "/wallet-project/static/js/main.5805ef14.js.map",
+    "main.267cca97.js.map": "/wallet-project/static/js/main.267cca97.js.map",
     "793.d96189b1.chunk.css.map": "/wallet-project/static/css/793.d96189b1.chunk.css.map",
-    "793.bf867b20.chunk.js.map": "/wallet-project/static/js/793.bf867b20.chunk.js.map",
+    "793.b21b6e74.chunk.js.map": "/wallet-project/static/js/793.b21b6e74.chunk.js.map",
     "967.63b997e9.chunk.js.map": "/wallet-project/static/js/967.63b997e9.chunk.js.map",
     "940.3d40f221.chunk.js.map": "/wallet-project/static/js/940.3d40f221.chunk.js.map",
     "715.628ee340.chunk.css.map": "/wallet-project/static/css/715.628ee340.chunk.css.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.8c97574b.css",
-    "static/js/main.5805ef14.js"
+    "static/js/main.267cca97.js"
   ]
 }
