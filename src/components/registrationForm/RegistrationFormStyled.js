@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 533px;
   height: 616px;
+  margin: 0 auto;
   background-color: #ffffff;
   padding: 40px 65px 60px;
   border-radius: 20px;

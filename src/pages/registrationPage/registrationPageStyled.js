@@ -4,8 +4,9 @@ import Ellipse_2_dec_1x from '../../images/dec/Ellipse_2_dec_1x.png';
 
 export const RegistrationPageStyled = styled.div`
   height: 100vh;
+  width: 100vw;
   @media screen and (min-width: 768px) {
-    width: 768px;
+    // width: 768px;
     background-color: #e5e5e5;
     background-image: url(${Ellipse_dec_1x}), url(${Ellipse_2_dec_1x});
     background-position: bottom left, top right;
@@ -15,7 +16,7 @@ export const RegistrationPageStyled = styled.div`
     align-items: center;
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
+    // width: 1280px;
     flex-direction: row;
     align-items: center;
     justify-content: center;

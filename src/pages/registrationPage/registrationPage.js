@@ -1,4 +1,3 @@
-import { Container } from '../../components/appBar/AppBar.styled';
 import RegisterForm from '../../components/registrationForm/registrationForm';
 import Group from '../../images/Group.svg';
 import {
@@ -11,7 +10,7 @@ import {
 
 const RegistrationPage = () => {
   return (
-    <Container>
+
       <RegistrationPageStyled>
         <RegistrationPageImg>
           <PageImg src={Group} alt="" width="436" />
@@ -21,7 +20,7 @@ const RegistrationPage = () => {
           <RegisterForm />
         </RegisterPageForm>
       </RegistrationPageStyled>
-    </Container>
+
   );
 };
 export default RegistrationPage;
