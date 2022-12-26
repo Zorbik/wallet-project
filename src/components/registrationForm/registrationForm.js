@@ -18,7 +18,9 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
 
   const SignupSchema = Yup.object({
-    email: Yup.string().email('Invalid email, please try another').required('Required'),
+    email: Yup.string()
+      .email('Invalid email, please try another')
+      .required('Required'),
     password: Yup.string()
       .min(6, 'Too Short! Min length 6')
       .max(12, 'Too Long! Max lenght 12')
@@ -89,6 +91,7 @@ export default function RegisterForm() {
                   value={values.email}
                   placeholder="E-mail"
                   name="email"
+                  autoComplete="off"
                 ></Input>
                 <InputIcon width="21" height="16">
                   <path
@@ -107,6 +110,7 @@ export default function RegisterForm() {
                   placeholder="Password"
                   name="password"
                   type="password"
+                  autoComplete="off"
                 ></Input>
                 <InputIcon width="16" height="21">
                   <path
